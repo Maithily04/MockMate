@@ -6,32 +6,30 @@ Your Personal Placement Preparation Notebook.
 
 MockMate AI is a comprehensive web-based platform designed to help students and job seekers streamline their placement preparation. It combines interactive learning, AI-powered mock interviews, and performance tracking into one unified, notebook-style interface.
 
-## Project Structure (Directory Showcase)
+## 📂 Project Structure
+
 Understanding how the application is organized:
 
+```text
 MockMate/
-├── app.py                # The brain of the project; manages routes & server logic
-├── requirements.txt      # List of all Python dependencies
+├── app.py                # Server logic & routes
+├── requirements.txt      # Python dependencies
 ├── README.md             # Project documentation
-│
-├── templates/            # Frontend: Contains all your HTML files
-│   ├── dashboard.html    # Main dashboard view
-│   ├── login.html        # Authentication page
-│   ├── interview.html    # Mock interview interface
-│   ├── *_hub.html        # Subject-specific hubs (Python, HTML, CSS, etc.)
-│   └── *_flashcards.html # Interactive learning tools
-│
+├── templates/            # HTML files
+│   ├── dashboard.html    # Main dashboard
+│   ├── login.html        # Authentication
+│   ├── interview.html    # Mock interview
+│   ├── *_hub.html        # Subject hubs
+│   └── *_flashcards.html # Learning tools
 ├── static/               # Assets
-│   ├── css/              # Styling (Notebook aesthetic/Responsive design)
-│   ├── js/               # Frontend logic (Flashcard flips, etc.)
-│   └── images/           # Notebook background and icons
-│
+│   ├── css/              # Stylesheets
+│   ├── js/               # Frontend logic
+│   └── images/           # Backgrounds & icons
 ├── utils/                # Backend logic
-│   ├── feedback.py       # AI feedback generation
-│   ├── question_generator.py # Mock interview question logic
-│   └── resume_parser.py  # PDF resume analysis
-│
-└── uploads/              # Storage for user resume PDFs
+│   ├── feedback.py       # AI feedback
+│   ├── question_generator.py # Question logic
+│   └── resume_parser.py  # PDF analysis
+└── uploads/              # User resume storage
 
 ## Key Features
 
