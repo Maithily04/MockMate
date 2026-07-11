@@ -70,7 +70,7 @@ ________________________________________________________________________________
  ## Project Structure
 
 Understanding how the application is organized:
-
+```text
 MockMate/
 ├── app.py                # Server logic & routes
 ├── requirements.txt      # Python dependencies
@@ -90,7 +90,7 @@ MockMate/
 │   ├── question_generator.py # Question logic
 │   └── resume_parser.py  # PDF analysis
 └── uploads/              # User resume storage
-
+````
  ________________________________________________________________________________________________________________________________________
 
 # Developer:
