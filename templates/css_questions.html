@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Interview Questions | MockMate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fira+Code:wght@400;500&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #fcf8f2; font-family: 'Patrick Hand', cursive; margin: 0; padding: 20px; }
+        .notebook-container { max-width: 850px; margin: 20px auto; background: rgba(255, 255, 255, 0.95); border-left: 45px solid #f9dad6; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 40px; position: relative; min-height: 600px; }
+        .notebook-container::before { content: ''; position: absolute; top: 0; left: 12px; bottom: 0; width: 2px; background: #f2a6a6; opacity: 0.5; }
+        .back-btn { position: absolute; top: 25px; left: 15px; background: #b8a1ff; color: white; border: none; padding: 8px 14px; border-radius: 8px; cursor: pointer; text-decoration: none; font-size: 1rem; }
+        .page-title { text-align: center; font-family: 'Caveat', cursive; font-size: 3.5rem; color: #2d3748; margin: 0 0 10px 0; }
+        .subtitle { text-align: center; color: #718096; font-size: 1.2rem; margin-bottom: 30px; }
+        
+        .qa-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .qa-question { background: #fcfcfc; padding: 18px 20px; font-size: 1.3rem; color: #4a5568; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .qa-question::after { content: '➕'; font-size: 1rem; color: #b8a1ff; transition: transform 0.2s; }
+        .qa-item.active .qa-question::after { content: '➖'; }
+        .qa-answer { display: none; padding: 20px; background: #fffdf9; border-top: 1px dashed #e2e8f0; font-size: 1.15rem; color: #4a5568; line-height: 1.5; }
+        
+        .example-box { background: #f0fdf4; border-left: 4px solid #4ade80; padding: 12px; border-radius: 6px; margin: 12px 0; font-size: 1.05rem; color: #166534; }
+        .code-block { background: #f7fafc; border-left: 4px solid #b8a1ff; padding: 10px; border-radius: 6px; font-family: 'Fira Code', monospace; font-size: 0.9rem; margin: 10px 0 0 0; white-space: pre-wrap; color: #2d3748; }
+        
+        .qa-item:nth-child(3n+1) { border-left: 5px solid #b8a1ff; }
+        .qa-item:nth-child(3n+2) { border-left: 5px solid #ffb8b8; }
+        .qa-item:nth-child(3n+3) { border-left: 5px solid #bae6fd; }
+    </style>
+</head>
+<body>
+    <div class="notebook-container">
+        <a href="/css_hub" class="back-btn">← Back</a>
+        <h1 class="page-title">❓ CSS Interview Q&A</h1>
+        <p class="subtitle">Click on any question to reveal answers and real-world examples.</p>
+
+        <div class="qa-wrapper">
+            <!-- Q1 -->
+            <div class="qa-item">
+                <div class="qa-question">1. What is the CSS Box Model?</div>
+                <div class="qa-answer">
+                    The box model wraps around every HTML element, dictating space allocation using Content, Padding, Border, and Margin.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> Think of shipping a glass vase. The vase is the <strong>Content</strong>, the bubble wrap around it is the <strong>Padding</strong>, the cardboard box exterior is the <strong>Border</strong>, and the empty safety space left between this box and other items in the delivery truck is the <strong>Margin</strong>.</div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="qa-item">
+                <div class="qa-question">2. What is the difference between border-box and content-box?</div>
+                <div class="qa-answer">
+                    <code>content-box</code> adds padding outside your specified width. <code>border-box</code> absorbs padding into the width.
+                    <pre class="code-block">box-sizing: border-box;</pre>
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> Imagine purchasing a room rug. In <code>content-box</code>, if you buy a 5x5ft rug and add a fringe border later, the rug physically expands on your floor. In <code>border-box</code>, if you buy a 5x5ft rug, any fringe added must fit *inside* that exact 5x5ft boundary.</div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="qa-item">
+                <div class="qa-question">3. How do Flexbox and CSS Grid differ?</div>
+                <div class="qa-answer">
+                    Flexbox is 1D layout tracking (columns OR rows), while Grid is 2D tracking (columns AND rows simultaneously).
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> Use **Flexbox** like a shelf array at a grocery checkout line—items line up nicely horizontally. Use **CSS Grid** like a multi-aisle blueprint plan for the entire store's shelf sections.</div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="qa-item">
+                <div class="qa-question">4. What is CSS Selector Specificity?</div>
+                <div class="qa-answer">
+                    Specificity determines which styling rules override others based on indicator weight classes (Inline > ID > Class > Element).
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> A general announcement calling "All citizens" has low specificity. Addressing "Tenants of Room 4B" is highly specific and takes precedence for that room.</div>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="qa-item">
+                <div class="qa-question">5. What is the difference between inline, block, and inline-block?</div>
+                <div class="qa-answer">
+                    Blocks force new lines, inline flows tightly with text, inline-block sits inline but accepts dimensional scaling.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> A **block** element is like a brick in a wall (stacks cleanly down). An **inline** element is like highlighting words mid-sentence with a marker. An **inline-block** element is like adding a physical, resizable stamp directly inside a line of text.</div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="qa-item">
+                <div class="qa-question">6. What is the difference between 'resetting' and 'normalizing' CSS?</div>
+                <div class="qa-answer">
+                    Resetting wipes out all defaults completely, whereas normalizing fixes bugs across browsers while retaining default clean metrics.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> **Resetting** is like demolishing an old building to lay fresh concrete. **Normalizing** is like renovating the building so all light switches work uniformly across every room.</div>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="qa-item">
+                <div class="qa-question">7. Explain CSS positions (Absolute, Relative, Fixed, Sticky).</div>
+                <div class="qa-answer">
+                    Controls structural alignment layers relative to parents or viewports.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> 
+                        - <strong>Relative</strong>: Taking one step to the left of your current spot.<br>
+                        - <strong>Absolute</strong>: Placing a sticky note at coordinates (x,y) relative to a bulletin board corner.<br>
+                        - <strong>Fixed</strong>: A GPS HUD overlay permanently attached to your car's windshield.<br>
+                        - <strong>Sticky</strong>: Driving on a highway where a billboard scrolls away normally, but an emergency notification bar sticks to the top of your screen as you pass it.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="qa-item">
+                <div class="qa-question">8. What are Pseudo-classes and Pseudo-elements?</div>
+                <div class="qa-answer">
+                    Pseudo-classes target states (<code>:hover</code>); Pseudo-elements style virtual content fractions (<code>::before</code>).
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> A **Pseudo-class** is like a person blushing when you shake hands (:hover state). A **Pseudo-element** is like wearing a decorative name tag permanently pinned right in front of your shirt (<code>::before</code>).</div>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="qa-item">
+                <div class="qa-question">9. What is z-index and Stacking Context?</div>
+                <div class="qa-answer">
+                    Dictates layering arrangements across intersecting element vectors.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> Layering sheets of paper on top of one another on a desk. A stacking context is like keeping sheets grouped together inside a folder; papers inside that folder can never slip between sheets in an entirely separate folder.</div>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="qa-item">
+                <div class="qa-question">10. Compare 'px', 'em', and 'rem' units.</div>
+                <div class="qa-answer">
+                    Pixels are absolute. <code>em</code> scales with parent text sizes. <code>rem</code> scales with the global root html sizing.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> `px` is a fixed wooden ruler. `em` is sizing scaled to your parent's height. `rem` is sizing scaled globally to the captain of the ship.</div>
+                </div>
+            </div>
+
+            <!-- Q11 -->
+            <div class="qa-item">
+                <div class="qa-question">11. What is CSS Reflow and Repaint?</div>
+                <div class="qa-answer">
+                    Reflow recalculates layouts. Repaint updates skin aesthetics without changing dimensions.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> **Reflow** is like shifting living room walls to change a room's size. **Repaint** is simply changing the wall color from blue to green.</div>
+                </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="qa-item">
+                <div class="qa-question">12. What does float do and how do you clear it?</div>
+                <div class="qa-answer">
+                    Pushes elements to a margin boundary to allow wrapping, cleared via clearfixes.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> Floating is like placing an image in a newspaper article so paragraphs wrap around it. Clearing it ensures text stops wrapping and starts cleanly below the image instead.</div>
+                </div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="qa-item">
+                <div class="qa-question">13. What are CSS Custom Properties (Variables)?</div>
+                <div class="qa-answer">
+                    Dynamic variables stored globally to update styles on the fly.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> Instead of telling 50 workers individually to paint with color hex code `#b8a1ff`, you label a bucket as "ThemeColor" and tell everyone to paint using whatever color is inside that bucket.</div>
+                </div>
+            </div>
+
+            <!-- Q14 -->
+            <div class="qa-item">
+                <div class="qa-question">14. What is Margin Collapsing?</div>
+                <div class="qa-answer">
+                    Vertical margins of adjacent elements collapse into a single margin equal to the largest of the two.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> If two people stand next to each other, and Person A demands 4 feet of personal space while Person B demands 2 feet, they only need to stand 4 feet apart to satisfy both, rather than adding them up to 6 feet.</div>
+                </div>
+            </div>
+
+            <!-- Q15 -->
+            <div class="qa-item">
+                <div class="qa-question">15. How do you center an element using Flexbox?</div>
+                <div class="qa-answer">
+                    Leverage justify-content and align-items to center elements horizontally and vertically.
+                    <pre class="code-block">.parent { display: flex; justify-content: center; align-items: center; }</pre>
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> Like a crane operator automatically lowering a shipping container exactly into the dead center of a cargo truck bed.</div>
+                </div>
+            </div>
+
+            <!-- Q16 -->
+            <div class="qa-item">
+                <div class="qa-question">16. Difference between visibility: hidden and display: none?</div>
+                <div class="qa-answer">
+                    <code>display: none</code> deletes structural footprint space. <code>visibility: hidden</code> leaves an empty space placeholder.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> **display: none** is like removing a chair from a waiting room row. **visibility: hidden** is like an invisible person sitting on that chair; nobody can see them, but you still can't use the seat.</div>
+                </div>
+            </div>
+
+            <!-- Q17 -->
+            <div class="qa-item">
+                <div class="qa-question">17. Explain media queries.</div>
+                <div class="qa-answer">
+                    Injects layout rules conditionally depending on screen view width parameters.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> A restaurant menu that prints on a large canvas for a wall, but formats into a compact booklet for small tables.</div>
+                </div>
+            </div>
+
+            <!-- Q18 -->
+            <div class="qa-item">
+                <div class="qa-question">18. What are preprocessors like SASS/SCSS?</div>
+                <div class="qa-answer">
+                    Tools extending native CSS styling with variables, nests, and functions.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> Writing blueprints using an automated computer software program rather than drafting matching patterns by hand over and over.</div>
+                </div>
+            </div>
+
+            <!-- Q19 -->
+            <div class="qa-item">
+                <div class="qa-question">19. Difference between CSS transitions and animations?</div>
+                <div class="qa-answer">
+                    Transitions blend between two points cleanly on click/hover. Animations run automatically across complex timelines.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> **Transition** is a door opening smoothly when pushed. **Animation** is a fully looped flipbook movie playing continuously.</div>
+                </div>
+            </div>
+
+            <!-- Q20 -->
+            <div class="qa-item">
+                <div class="qa-question">20. What is object-fit?</div>
+                <div class="qa-answer">
+                    Dictates how multimedia scaling fits container bounds.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> Putting a photo into a picture frame. You can crop it to fill the space (`cover`) or scale it down so the entire picture fits with letterboxing (`contain`).</div>
+                </div>
+            </div>
+
+            <!-- Q21 -->
+            <div class="qa-item">
+                <div class="qa-question">21. What are CSS Sprites?</div>
+                <div class="qa-answer">
+                    Combines multiple images into one file to optimize loading performance.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> A delivery driver bringing all your packages in a single box instead of driving to your house 10 separate times with one item each.</div>
+                </div>
+            </div>
+
+            <!-- Q22 -->
+            <div class="qa-item">
+                <div class="qa-question">22. What does !important do?</div>
+                <div class="qa-answer">
+                    Overrides all specificity hierarchies to force property application.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> A megaphone-wielding building warden yelling "EVACUATE NOW", which overrides all other conversations happening in the office.</div>
+                </div>
+            </div>
+
+            <!-- Q23 -->
+            <div class="qa-item">
+                <div class="qa-question">23. What are utility frameworks like Tailwind CSS?</div>
+                <div class="qa-answer">
+                    Libraries providing pre-built styling classes to speed up development.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> Building a house out of pre-fabricated blocks instead of mixing concrete and baking bricks yourself.</div>
+                </div>
+            </div>
+
+            <!-- Q24 -->
+            <div class="qa-item">
+                <div class="qa-question">24. What is minmax() in CSS Grid?</div>
+                <div class="qa-answer">
+                    Defines dynamic track dimensions that adjust gracefully between minimum and maximum constraints.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> An elastic waistband that shrinks to a minimum size so it doesn't fall off, but expands to fit larger waist sizes comfortably.</div>
+                </div>
+            </div>
+
+            <!-- Q25 -->
+            <div class="qa-item">
+                <div class="qa-question">25. How do you implement Dark Mode natively?</div>
+                <div class="qa-answer">
+                    Use the <code>prefers-color-scheme</code> media query to adjust styles based on system preferences.
+                    <div class="example-box"><strong>🌍 Real-World Example:</strong> Tinted glasses that darken automatically when you step into bright sunlight to protect your eyes.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.qa-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                const answer = parent.querySelector('.qa-answer');
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MockMate AI - JS Flashcards</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        body { background-image: url("{{ url_for('static', filename='images/notebook_bg.jpg') }}"); background-size: cover; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { width: 600px; text-align: center; }
+        .flashcard-wrapper { background: rgba(255, 255, 255, 0.9); padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 20px; min-height: 250px; display: flex; flex-direction: column; justify-content: center; cursor: pointer; }
+        h1 { font-family: 'Caveat', cursive; color: #f1c40f; font-size: 3rem; }
+        .counter { font-family: 'Patrick Hand', cursive; background: #fff3cd; padding: 5px 15px; border-radius: 20px; display: inline-block; color: #856404; margin-bottom: 20px; }
+        .content-area { font-family: 'Patrick Hand', cursive; font-size: 1.5rem; }
+        .controls { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+        button { font-family: 'Patrick Hand', cursive; background: #f1c40f; color: white; border: none; padding: 10px 25px; border-radius: 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>⚡ JS Flashcards</h1>
+    <div class="counter" id="counter">1 / 10</div>
+    <div class="flashcard-wrapper" id="card" onclick="this.classList.toggle('flipped')">
+        <div id="display-area" class="content-area">
+            <h2 id="text-top">Question</h2>
+            <p id="text-bottom">Click to Flip</p>
+        </div>
+    </div>
+    <div class="controls">
+        <button onclick="prevCard()">← Previous</button>
+        <button onclick="nextCard()">Next →</button>
+    </div>
+</div>
+<script>
+    const flashcards = [
+        {q: "What is a closure?", a: "A function bundled with its lexical environment."},
+        {q: "What is 'this' in JS?", a: "Refers to the object the function belongs to."},
+        {q: "Difference between var, let, and const?", a: "Var is function-scoped; let/const are block-scoped. Const cannot be reassigned."},
+        {q: "What is an arrow function?", a: "A shorter syntax for writing function expressions."},
+        {q: "What is the DOM?", a: "Document Object Model - API for HTML documents."},
+        {q: "How to check types in JS?", a: "typeof operator."},
+        {q: "What is a promise?", a: "An object representing eventual completion of an async operation."},
+        {q: "What is JSON?", a: "JavaScript Object Notation - a data format."},
+        {q: "What is event bubbling?", a: "Event starts at target and propagates up to ancestors."},
+        {q: "What is === operator?", a: "Strict equality (checks value and type)."}
+    ];
+    let currentIndex = 0;
+    function updateCard() { document.getElementById('text-top').innerText = flashcards[currentIndex].q; document.getElementById('text-bottom').innerText = "Click to Flip"; document.getElementById('counter').innerText = `${currentIndex + 1} / 10`; }
+    document.getElementById('card').addEventListener('click', function() { if(this.classList.contains('flipped')) { document.getElementById('text-bottom').innerText = flashcards[currentIndex].a; } else { document.getElementById('text-bottom').innerText = "Click to Flip"; } });
+    function nextCard() { if(currentIndex < 9) { currentIndex++; updateCard(); document.getElementById('card').classList.remove('flipped'); } }
+    function prevCard() { if(currentIndex > 0) { currentIndex--; updateCard(); document.getElementById('card').classList.remove('flipped'); } }
+    updateCard();
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MockMate AI - DSA Flashcards</title>
+    <!-- Use your existing stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Matches your notebook background style */
+        body {
+            background-image: url("{{ url_for('static', filename='images/notebook_bg.jpg') }}");
+            background-size: cover;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;
+        }
+        .container { width: 600px; text-align: center; }
+        .flashcard-wrapper {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 20px; min-height: 250px;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        h1 { font-family: 'Caveat', cursive; color: #6c5ce7; font-size: 3rem; }
+        .counter { font-family: 'Patrick Hand', cursive; background: #e0dcfc; padding: 5px 15px; border-radius: 20px; display: inline-block; color: #6c5ce7; margin-bottom: 20px; }
+        .content-area { font-family: 'Patrick Hand', cursive; font-size: 1.5rem; }
+        .controls { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+        button { font-family: 'Patrick Hand', cursive; background: #a29bfe; color: white; border: none; padding: 10px 25px; border-radius: 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📚 DSA Flashcards</h1>
+    <p>Click the card to flip, or use the controls to navigate.</p>
+    <div class="counter" id="counter">1 / 10</div>
+
+    <div class="flashcard-wrapper" id="card" onclick="this.classList.toggle('flipped')">
+        <div id="display-area" class="content-area">
+            <h2 id="text-top">Question</h2>
+            <p id="text-bottom">Loading...</p>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button onclick="prevCard()">← Previous</button>
+        <button onclick="nextCard()">Next →</button>
+    </div>
+</div>
+
+<script>
+    const flashcards = [
+        {q: "What is the time complexity of searching in a Balanced BST?", a: "Answer: O(log n)"},
+        {q: "What data structure uses LIFO?", a: "Answer: Stack"},
+        {q: "Does a Queue follow FIFO or LIFO?", a: "Answer: FIFO (First-In, First-Out)"},
+        {q: "What is the worst-case for QuickSort?", a: "Answer: O(n²)"},
+        {q: "What is an Adjacency Matrix used for?", a: "Answer: Representing Graphs"},
+        {q: "What is the primary use of a Hash Map?", a: "Answer: Fast average-case lookups (O(1))"},
+        {q: "What is a Linked List?", a: "Answer: A collection of nodes where each points to the next."},
+        {q: "Define Heap Sort complexity.", a: "Answer: O(n log n)"},
+        {q: "What is the main benefit of an Array?", a: "Answer: Random access (O(1) indexing)."},
+        {q: "What is a Stack Overflow?", a: "Answer: When a program exceeds its stack memory limit."}
+    ];
+
+    let currentIndex = 0;
+    const topText = document.getElementById('text-top');
+    const bottomText = document.getElementById('text-bottom');
+    const counter = document.getElementById('counter');
+
+    function updateCard() {
+        // Front logic
+        topText.innerText = flashcards[currentIndex].q;
+        bottomText.innerText = "Click to Flip";
+        counter.innerText = `${currentIndex + 1} / 10`;
+    }
+
+    // Simple toggle logic to show answer
+    document.getElementById('card').addEventListener('click', function() {
+        if(this.classList.contains('flipped')) {
+            bottomText.innerText = flashcards[currentIndex].a;
+        } else {
+            bottomText.innerText = "Click to Flip";
+        }
+    });
+
+    function nextCard() { if(currentIndex < 9) { currentIndex++; updateCard(); document.getElementById('card').classList.remove('flipped'); } }
+    function prevCard() { if(currentIndex > 0) { currentIndex--; updateCard(); document.getElementById('card').classList.remove('flipped'); } }
+
+    updateCard();
+</script>
+</body>
+</html>

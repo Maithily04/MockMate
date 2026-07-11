@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Interview | MockMate AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fira+Code:wght@400;500&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #fcf8f2;
+            font-family: 'Patrick Hand', cursive;
+            padding: 20px;
+        }
+
+        /* Cohesive Notebook Binder Styling */
+        .notebook-container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.98);
+            border-left: 50px solid #f9dad6;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+            padding: 50px 40px 40px 50px;
+            position: relative;
+        }
+
+        /* Clean pink margin rule */
+        .notebook-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 15px;
+            bottom: 0;
+            width: 2px;
+            background: #f2a6a6;
+            opacity: 0.6;
+        }
+
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #ffd6e8;
+            color: #333;
+            padding: 10px 18px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            background: #ffbcdc;
+        }
+
+        .heading {
+            text-align: center;
+            font-family: 'Caveat', cursive;
+            font-size: 3.8rem;
+            color: #7b68ee;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+        }
+
+        /* Hand-Drawn Style Cards */
+        .card-section {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .card-section:nth-of-type(odd) {
+            border-left: 5px solid #b8a1ff;
+        }
+
+        .card-section:nth-of-type(even) {
+            border-left: 5px solid #ffb8b8;
+        }
+
+        .section-title {
+            font-family: 'Caveat', cursive;
+            color: #7b68ee;
+            font-size: 2.3rem;
+            margin-bottom: 12px;
+        }
+
+        .card-section p {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Interactive Inputs styling */
+        .file-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px dashed #cfc2ff;
+            border-radius: 12px;
+            background: #fafbff;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .question-text {
+            background: #f4efff;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.4rem;
+            color: #333;
+            margin: 15px 0;
+            border-left: 4px solid #7b68ee;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 160px;
+            border: 1px solid #e2e8f0;
+            outline: none;
+            padding: 18px;
+            border-radius: 15px;
+            background: #fffdf9;
+            resize: vertical;
+            font-size: 1.15rem;
+            font-family: inherit;
+            line-height: 1.5;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.01);
+        }
+
+        textarea:focus {
+            border-color: #b8a1ff;
+            background: #ffffff;
+        }
+
+        /* Clean Button Frameworks */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .primary-btn {
+            background: #cfc2ff;
+            color: #222;
+        }
+
+        .primary-btn:hover {
+            background: #b7a6ff;
+        }
+
+        .secondary-btn {
+            background: #ffe4ec;
+            color: #222;
+        }
+
+        .secondary-btn:hover {
+            background: #ffd0de;
+        }
+
+        .full-width-btn {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* Feedback UI Improvements */
+        .feedback-content {
+            background: #fffdf5;
+            border: 1px dashed #e6dfc7;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        .rating-stars {
+            color: #f59e0b;
+            font-weight: bold;
+        }
+
+        .quote {
+            text-align: center;
+            font-family: 'Caveat', cursive;
+            color: #7b68ee;
+            font-size: 2.2rem;
+            margin-top: 35px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="notebook-container">
+    <a href="/dashboard" class="back-btn">← Back to Dashboard</a>
+
+    <h1 class="heading">Mock Interview</h1>
+    <p class="subtitle">Practice Like It's Your Real Placement Interview</p>
+
+    <!-- Resume Upload Card -->
+    <div class="card-section">
+        <h2 class="section-title">Upload Resume</h2>
+        <p>Upload your resume and MockMate AI will generate personalized interview questions matching your skill profile.</p>
+        
+        <form method="POST" enctype="multipart/form-data" action="/upload_resume">
+            <input type="file" name="resume" class="file-input" accept=".pdf,.doc,.docx" required>
+            <button type="submit" class="btn primary-btn full-width-btn">Generate Interview Questions</button>
+        </form>
+    </div>
+
+    <!-- Active Question Card -->
+    <div class="card-section">
+        <h2 class="section-title">Question 1</h2>
+        <div class="question-text" id="question-box">
+            {{ question if question else "Tell me about yourself and your primary technical stack." }}
+        </div>
+
+        <form method="POST" action="/submit_answer">
+            <textarea id="answer" name="answer" placeholder="Type or speak your comprehensive answer here..." required></textarea>
+            
+            <div class="action-buttons">
+                <button type="button" class="btn secondary-btn" onclick="startVoiceRecording()">🎤 Speak Answer</button>
+                <button type="button" class="btn secondary-btn" onclick="readQuestion()">🔊 Read Question</button>
+                <button type="submit" class="btn primary-btn">Submit Answer</button>
+            </div>
+        </form>
+
+        <form method="POST" action="/next_question">
+            <button type="submit" class="btn secondary-btn full-width-btn">Next Question →</button>
+        </form>
+    </div>
+
+    <!-- Live Performance feedback Card -->
+    <div class="card-section">
+        <h2 class="section-title">AI Performance Feedback</h2>
+        <div class="feedback-content">
+            <p><strong>Current Standing:</strong> <span class="rating-stars">⭐⭐⭐⭐☆ (Good)</span></p>
+            <hr style="border: none; border-top: 1px dashed #e2e8f0; margin: 10px 0;">
+            <p><strong>Strengths:</strong> Clear vocal cadence, logical architecture structure, and direct introduction delivery.</p>
+            <p style="margin-top: 10px;"><strong>Recommended Enhancements:</strong> Infuse measurable performance key results into your project references (e.g., speed optimizations or data reduction processing layout updates).</p>
+        </div>
+    </div>
+
+    <div class="quote">
+        "Every Interview is Practice Until You Get the Offer."
+    </div>
+</div>
+
+<script>
+function startVoiceRecording(){
+    if(!('webkitSpeechRecognition' in window)){
+        alert("Speech Recognition not supported in this browser. Please try using Chrome.");
+        return;
+    }
+    const recognition = new webkitSpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.start();
+
+    recognition.onresult = function(event){
+        const text = event.results[0][0].transcript;
+        document.getElementById("answer").value = text;
+    };
+}
+
+function readQuestion(){
+    let question = document.getElementById("question-box").innerText;
+    let speech = new SpeechSynthesisUtterance(question);
+    speech.lang = "en-US";
+    window.speechSynthesis.speak(speech);
+}
+</script>
+
+</body>
+</html>

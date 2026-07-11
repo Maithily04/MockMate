@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Interview Questions | MockMate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght=700&family=Fira+Code:wght=400;500&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #fcf8f2; font-family: 'Patrick Hand', cursive; margin: 0; padding: 20px; }
+        .notebook-container { max-width: 850px; margin: 20px auto; background: rgba(255, 255, 255, 0.95); border-left: 45px solid #f9dad6; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 40px; position: relative; min-height: 600px; }
+        .notebook-container::before { content: ''; position: absolute; top: 0; left: 12px; bottom: 0; width: 2px; background: #f2a6a6; opacity: 0.5; }
+        .back-btn { position: absolute; top: 25px; left: 15px; background: #b8a1ff; color: white; border: none; padding: 8px 14px; border-radius: 8px; cursor: pointer; text-decoration: none; font-size: 1rem; }
+        .page-title { text-align: center; font-family: 'Caveat', cursive; font-size: 3.5rem; color: #2d3748; margin: 0 0 10px 0; }
+        .subtitle { text-align: center; color: #718096; font-size: 1.2rem; margin-bottom: 30px; }
+        
+        .qa-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .qa-question { background: #fcfcfc; padding: 18px 20px; font-size: 1.3rem; color: #4a5568; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .qa-question::after { content: '➕'; font-size: 1rem; color: #b8a1ff; transition: transform 0.2s; }
+        .qa-item.active .qa-question::after { content: '➖'; }
+        .qa-answer { display: none; padding: 20px; background: #fffdf9; border-top: 1px dashed #e2e8f0; font-size: 1.15rem; color: #4a5568; line-height: 1.5; }
+        
+        .example-box { background: #fff1f2; border-left: 4px solid #f43f5e; padding: 12px; border-radius: 6px; margin: 12px 0; font-size: 1.05rem; color: #9f1239; }
+        .code-block { background: #f7fafc; border-left: 4px solid #b8a1ff; padding: 10px; border-radius: 6px; font-family: 'Fira Code', monospace; font-size: 0.9rem; margin: 10px 0 0 0; white-space: pre-wrap; color: #2d3748; }
+        
+        .qa-item:nth-child(3n+1) { border-left: 5px solid #b8a1ff; }
+        .qa-item:nth-child(3n+2) { border-left: 5px solid #ffb8b8; }
+        .qa-item:nth-child(3n+3) { border-left: 5px solid #bae6fd; }
+    </style>
+</head>
+<body>
+    <div class="notebook-container">
+        <a href="/html_hub" class="back-btn">← Back</a>
+        <h1 class="page-title">❓ HTML Interview Q&A</h1>
+        <p class="subtitle">Click on any question to reveal answers and real-world examples.</p>
+
+        <div class="qa-wrapper">
+            <!-- Q1 -->
+            <div class="qa-item">
+                <div class="qa-question">1. What is Semantic HTML?</div>
+                <div class="qa-answer">
+                    Semantic HTML introduces tags that explicitly describe their meaning to both the browser and the developer (e.g., <code>&lt;header&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>), rather than generic formatting containers like <code>&lt;div&gt;</code>.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> Reading a traditional newspaper. The layout clearly uses distinct headers, columns, and sidebars so you understand what is an advertisement versus a breaking story immediately, rather than reading one giant, unlabeled wall of text.</div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="qa-item">
+                <div class="qa-question">2. What is the purpose of the DOCTYPE declaration?</div>
+                <div class="qa-answer">
+                    <code>&lt;!DOCTYPE html&gt;</code> is an instruction to the web browser declaring which version of HTML the page is written in. It ensures the browser renders the page in "standards mode" instead of "quirks mode".
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> hand over a board game manual to a group of players. Declaring the version at the top ensures everyone follows the updated modern rules instead of assuming old house rules from 1995.</div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="qa-item">
+                <div class="qa-question">3. What is the difference between localStorage, sessionStorage, and cookies?</div>
+                <div class="qa-answer">
+                    - <code>localStorage</code>: Stores data with no expiration date.<br>
+                    - <code>sessionStorage</code>: Wipes data automatically when the browser tab is closed.<br>
+                    - <code>cookies</code>: Stores smaller amounts of data and sends them back to the server with every HTTP request.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> <code>localStorage</code> is like writing a note in a permanent diary. <code>sessionStorage</code> is writing on a classroom whiteboard that gets wiped at the end of the period. <code>cookies</code> is like a visitor badge given to you at a security desk that you must flash every single time you pass a checkpoint.</div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="qa-item">
+                <div class="qa-question">4. What are data-* attributes used for?</div>
+                <div class="qa-answer">
+                    They allow you to embed custom proprietary data directly onto standard HTML elements to easily bridge information between the structural UI layer and JavaScript operations.
+                    <pre class="code-block">&lt;div data-user-id="9521" data-role="admin"&gt;&lt;/div&gt;</pre>
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> Sticking a hidden barcode sticker beneath a grocery store product shelf container. Customers don't care about it, but staff scanning it can instantly see inventory tracking details.</div>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="qa-item">
+                <div class="qa-question">5. What is the difference between block and inline HTML elements?</div>
+                <div class="qa-answer">
+                    Block elements (e.g., <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>) start on a fresh line and stretch out to fill the entire horizontal space available. Inline elements (e.g., <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>) only take up exactly as much space as their contents require.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> A block element is like a heavy log stretching across a hiking path. An inline element is like a colorful ribbon tied tightly around a small branch along the side.</div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="qa-item">
+                <div class="qa-question">6. What is the significance of the 'alt' attribute on images?</div>
+                <div class="qa-answer">
+                    It provides an alternate text description for an image if it fails to load, and it is vital for screen readers assisting visually impaired users.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> An audio description channel on a television broadcast that narrates what is happening on screen for people who cannot see the picture.</div>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="qa-item">
+                <div class="qa-question">7. How do `async` and `defer` work when loading external script tags?</div>
+                <div class="qa-answer">
+                    - Normal script loading pauses HTML parsing entirely.<br>
+                    - `async`: Downloads the script file concurrently in the background and runs it immediately the moment it finishes downloading, pausing HTML parsing mid-way.<br>
+                    - `defer`: Downloads concurrently but waits until the entire HTML document is completely parsed before executing.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> Cooking a meal with a manual. Normal script is stopping prep work completely to go buy an ingredient. `async` is sending a runner to grab a spice and throwing it into the pot the second they burst through the door. `defer` is waiting until the entire dish is plated before smoothly pouring a sauce over it.</div>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="qa-item">
+                <div class="qa-question">8. What is the purpose of the HTML5 `<picture>` element?</div>
+                <div class="qa-answer">
+                    It acts as a wrapper containing multiple source variations, letting the browser choose the most optimal image asset depending on the device's screen size or resolution.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> A billboard company swapping a massive printed poster out for a smaller digital display version if they see the viewer is looking at it close up from a narrow sidewalk.</div>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="qa-item">
+                <div class="qa-question">9. What are self-closing (void) elements?</div>
+                <div class="qa-answer">
+                    Elements that do not wrap around any separate text content blocks or child nodes, and therefore do not require an explicit closing tag (e.g., <code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;input&gt;</code>).
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> A stamp on a postcard. It is a standalone unit applied to a surface, unlike a envelope jacket that must open and close to hold something inside.</div>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="qa-item">
+                <div class="qa-question">10. What is the difference between `id` and `class` attributes?</div>
+                <div class="qa-answer">
+                    An `id` must be completely unique to one specific element per page, while a `class` can be reused across any number of matching elements to group them together.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> A `class` is like a uniform worn by an entire sports team. An `id` is like a single player's fingerprint or passport number.</div>
+                </div>
+            </div>
+
+            <!-- Q11 -->
+            <div class="qa-item">
+                <div class="qa-question">11. What is an `iframe` and its main use case?</div>
+                <div class="qa-answer">
+                    An Inline Frame embeds an entirely separate, isolated HTML document window directly inside the current webpage hosting it.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> Cutting a small window out of a paper map to display a live, interactive Google Maps window tracking a delivery driver.</div>
+                </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="qa-item">
+                <div class="qa-question">12. Explain the purpose of `<meta>` tags.</div>
+                <div class="qa-answer">
+                    They provide structured metadata descriptions about the page (like character encoding, keywords, or viewports) to search engines and browser indexing bots rather than rendering directly on screen.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> The nutritional information label printed on the back of a soup can. It doesn't change the flavor or look of the food inside, but it explains exactly what the product contains.</div>
+                </div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="qa-item">
+                <div class="qa-question">13. What is the purpose of the `<label>` element's `for` attribute?</div>
+                <div class="qa-answer">
+                    It programmatically links a label to an input field via its corresponding ID, increasing the clickable target zone and boosting accessibility.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> Tapping anywhere on a large label sign to check a tiny checkbox box underneath it, saving users from having to click with pinpoint accuracy.</div>
+                </div>
+            </div>
+
+            <!-- Q14 -->
+            <div class="qa-item">
+                <div class="qa-question">14. What are HTML5 semantic structure elements for articles?</div>
+                <div class="qa-answer">
+                    Tags like <code>&lt;section&gt;</code> divide content by thematic topic headings, while <code>&lt;article&gt;</code> wraps independent content that could be distributed completely on its own (e.g., a blog post).
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> A <code>&lt;section&gt;</code> is like a chapter in a textbook. An <code>&lt;article&gt;</code> is like an isolated magazine story clipped out and shared separately.</div>
+                </div>
+            </div>
+
+            <!-- Q15 -->
+            <div class="qa-item">
+                <div class="qa-question">15. What does the `target="_blank"` attribute do on an anchor tag, and how do you secure it?</div>
+                <div class="qa-answer">
+                    It forces a hyperlink to open inside a brand new browser tab window. For security reasons, it should always be paired with <code>rel="noopener noreferrer"</code> to prevent malicious site access via window performance links.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> Passing an envelope to a guest that lets them enter another building, but locking your own door behind them so they can't trace their way back and meddle with your desk.</div>
+                </div>
+            </div>
+
+            <!-- Q16 -->
+            <div class="qa-item">
+                <div class="qa-question">16. What is the difference between `<b>` versus `<strong>`, and `<i>` versus `<em>`?</div>
+                <div class="qa-answer">
+                    <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> apply stylistic visual updates (bold and italics). <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code> apply structural, semantic emphasis that screen readers interpret as vocal stress.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> <code>&lt;b&gt;</code> is drawing thicker ink borders over a word. <code>&lt;strong&gt;</code> is actually shouting the word out loud during a presentation.</div>
+                </div>
+            </div>
+
+            <!-- Q17 -->
+            <div class="qa-item">
+                <div class="qa-question">17. Explain the purpose of a web manifest file in HTML5.</div>
+                <div class="qa-answer">
+                    It is a JSON file metadata link that tells browsers how to treat your website as a Progressive Web App (PWA), defining app icons, splash screens, and home display themes.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> A passport document filing that officially registers a mobile website so a smartphone treats it like a native application installed from an app store.</div>
+                </div>
+            </div>
+
+            <!-- Q18 -->
+            <div class="qa-item">
+                <div class="qa-question">18. What is Shadow DOM?</div>
+                <div class="qa-answer">
+                    A web component feature that encapsulates a completely isolated DOM tree separate from the main document, protecting styles and logic from bleeding outward or conflicting.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> A sealed, automated watch mechanism ticking inside its case. The gears work independently on their own rules without being affected by dust or outside interference.</div>
+                </div>
+            </div>
+
+            <!-- Q19 -->
+            <div class="qa-item">
+                <div class="qa-question">19. What is the use case for the `<canvas>` tag?</div>
+                <div class="qa-answer">
+                    It provides a blank container area that uses JavaScript API calls to dynamically render complex 2D shapes, vector animations, or web game charts on the fly.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> A blank white canvas setup inside an artist's studio. The frame does nothing on its own until an animator begins painting and changing the display layer manually.</div>
+                </div>
+            </div>
+
+            <!-- Q20 -->
+            <div class="qa-item">
+                <div class="qa-question">20. What is the difference between an absolute and relative URL link pathway?</div>
+                <div class="qa-answer">
+                    An absolute path provides the complete web address destination (including domain protocol). A relative path points to a file position relative to the current folder location.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> Absolute path: "Fly to Paris, France and go to the Eiffel Tower." Relative path: "Walk out your front door and take two steps down to the basement."</div>
+                </div>
+            </div>
+
+            <!-- Q21 -->
+            <div class="qa-item">
+                <div class="qa-question">21. What is character entity encoding in HTML?</div>
+                <div class="qa-answer">
+                    It replaces special reserved layout characters with special code sequences (e.g., using <code>&amp;lt;</code> instead of <code>&lt;</code>) so they don't break the browser's HTML parser code logic.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> Using escape code quotes in a text file to ensure a system reads your words accurately instead of interpreting them as terminal command blocks.</div>
+                </div>
+            </div>
+
+            <!-- Q22 -->
+            <div class="qa-item">
+                <div class="qa-question">22. What are semantic blockquote citations?</div>
+                <div class="qa-answer">
+                    Using the <code>&lt;blockquote&gt;</code> element to define long passages of quoted text, often paired with a <code>cite</code> attribute tracking the URL origin resource.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> Adding an official footnote reference clip beneath a historical speech excerpt inside a library paper.</div>
+                </div>
+            </div>
+
+            <!-- Q23 -->
+            <div class="qa-item">
+                <div class="qa-question">23. What is HTML Form validation?</div>
+                <div class="qa-answer">
+                    Using built-in attributes like <code>required</code>, <code>pattern</code>, or <code>type="email"</code> to catch input entry errors directly in the browser before data hits the server.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> A security bouncer inspecting tickets at the entrance door to check if dates match before letting anyone stand inside the main venue line.</div>
+                </div>
+            </div>
+
+            <!-- Q24 -->
+            <div class="qa-item">
+                <div class="qa-question">24. What is the purpose of the `<noscript>` tag?</div>
+                <div class="qa-answer">
+                    It displays an alternate fallback message warning if the visitor's browser has disabled JavaScript or doesn't support scripts at all.
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> A backup roadside sign that flips open saying "Bridge Closed Ahead" if the main electronic display system completely loses power.</div>
+                </div>
+            </div>
+
+            <!-- Q25 -->
+            <div class="qa-item">
+                <div class="qa-question">25. What does the `viewport` meta tag do for responsive layout systems?</div>
+                <div class="qa-answer">
+                    It tells mobile browsers to scale the webpage's dimensions to match the physical width of the device's screen rather than rendering it as a giant, shrunken desktop screen view.
+                    <pre class="code-block">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</pre>
+                    <div class="example-box"><strong>🌐 Real-World Example:</strong> A tailor resizing a suit outline blueprint so it fits a child perfectly, instead of putting them in an unaltered adult suit and rolling up the sleeves.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.qa-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                const answer = parent.querySelector('.qa-answer');
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

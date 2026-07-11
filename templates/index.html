@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>MockMate AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Patrick+Hand&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+
+body{
+
+    margin:0;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:url('{{ url_for("static", filename="images/notebook_bg.jpg") }}');
+
+    background-size:cover;
+}
+
+.login-card{
+
+    width:420px;
+
+    background:rgba(255,255,255,0.95);
+
+    padding:40px;
+
+    border-radius:30px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+
+    text-align:center;
+}
+
+.logo{
+
+    font-family:'Caveat',cursive;
+
+    font-size:4rem;
+
+    color:#6c5ce7;
+}
+
+.tagline{
+
+    font-family:'Patrick Hand',cursive;
+
+    color:#666;
+
+    margin-bottom:30px;
+
+    font-size:1.2rem;
+}
+
+.input-box{
+
+    width:90%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:15px;
+
+    margin-bottom:15px;
+
+    background:#f3eeff;
+
+    font-size:1rem;
+}
+
+.login-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#c9bcff;
+
+    font-size:1.1rem;
+
+    cursor:pointer;
+}
+
+.login-btn:hover{
+
+    background:#b4a1ff;
+}
+
+.quote{
+
+    margin-top:25px;
+
+    font-family:'Caveat',cursive;
+
+    font-size:1.6rem;
+
+    color:#8e7dff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-card">
+
+    <div class="logo">
+        MockMate AI
+    </div>
+
+    <div class="tagline">
+        Your Personal Placement Preparation Notebook
+    </div>
+
+    <form action="/dashboard">
+
+        <input
+            type="text"
+            class="input-box"
+            placeholder="Username"
+            required>
+
+        <input
+            type="password"
+            class="input-box"
+            placeholder="Password"
+            required>
+
+        <button
+            class="login-btn"
+            type="submit">
+
+            Login
+
+        </button>
+
+    </form>
+
+    <div class="quote">
+        "Practice Today, Get Placed Tomorrow."
+    </div>
+
+</div>
+
+</body>
+
+</html>

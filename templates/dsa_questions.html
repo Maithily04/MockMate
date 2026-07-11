@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Interview Questions | MockMate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fira+Code:wght@400;500&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chhtml.js"></script>
+    <style>
+        body { background-color: #fcf8f2; font-family: 'Patrick Hand', cursive; margin: 0; padding: 20px; }
+        .notebook-container { max-width: 850px; margin: 20px auto; background: rgba(255, 255, 255, 0.95); border-left: 45px solid #f9dad6; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 40px; position: relative; min-height: 600px; }
+        .notebook-container::before { content: ''; position: absolute; top: 0; left: 12px; bottom: 0; width: 2px; background: #f2a6a6; opacity: 0.5; }
+        .back-btn { position: absolute; top: 25px; left: 15px; background: #b8a1ff; color: white; border: none; padding: 8px 14px; border-radius: 8px; cursor: pointer; text-decoration: none; font-size: 1rem; }
+        .page-title { text-align: center; font-family: 'Caveat', cursive; font-size: 3.5rem; color: #2d3748; margin: 0 0 10px 0; }
+        .subtitle { text-align: center; color: #718096; font-size: 1.2rem; margin-bottom: 30px; }
+        
+        .qa-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .qa-question { background: #fcfcfc; padding: 18px 20px; font-size: 1.3rem; color: #4a5568; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .qa-question::after { content: '➕'; font-size: 1rem; color: #b8a1ff; transition: transform 0.2s; }
+        .qa-item.active .qa-question::after { content: '➖'; }
+        .qa-answer { display: none; padding: 20px; background: #fffdf9; border-top: 1px dashed #e2e8f0; font-size: 1.15rem; color: #4a5568; line-height: 1.5; }
+        
+        .example-box { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px; border-radius: 6px; margin: 12px 0; font-size: 1.05rem; color: #1e3a8a; }
+        
+        .qa-item:nth-child(3n+1) { border-left: 5px solid #b8a1ff; }
+        .qa-item:nth-child(3n+2) { border-left: 5px solid #ffb8b8; }
+        .qa-item:nth-child(3n+3) { border-left: 5px solid #bae6fd; }
+    </style>
+</head>
+<body>
+    <div class="notebook-container">
+        <a href="/dsa_hub" class="back-btn">← Back</a>
+        <h1 class="page-title">❓ DSA Interview Q&A</h1>
+        <p class="subtitle">Click on any question to reveal answers and real-world examples.</p>
+
+        <div class="qa-wrapper">
+            <!-- Q1 -->
+            <div class="qa-item">
+                <div class="qa-question">1. What is the difference between an Array and a Linked List?</div>
+                <div class="qa-answer">
+                    Arrays use continuous slots for fast index lookups $\mathcal{O}(1)$. Linked Lists link separate objects dynamically.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> An **Array** is like a row of reserved theater seats—everyone sits in order by seat number. A **Linked List** is like a scavenger hunt—each clue tells you where to find the next one, even if they are scattered all over the house.</div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="qa-item">
+                <div class="qa-question">2. Explain Big O Notation.</div>
+                <div class="qa-answer">
+                    A mathematical metric defining the upper bounds of runtime or memory scalability.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> If you need to send a file to a friend, sending it via email scales with file size ($\mathcal{O}(n)$). Flying the file to them on a flash drive takes the same amount of time regardless of how large the data is ($\mathcal{O}(1)$).</div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="qa-item">
+                <div class="qa-question">3. How do a Stack and a Queue differ?</div>
+                <div class="qa-answer">
+                    Stacks follow Last-In, First-Out (LIFO). Queues follow First-In, First-Out (FIFO).
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> A **Stack** is like a stack of clean dinner plates—you always take the top one first. A **Queue** is like a line at an ATM—the first person to arrive is the first one served.</div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="qa-item">
+                <div class="qa-question">4. What is a Hash Collision?</div>
+                <div class="qa-answer">
+                    When two unique keys yield identical hash index evaluations. Fixed by chaining or probing.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> Two files assigned to the same alphabetized filing cabinet drawer because both of their titles start with the letter "B".</div>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="qa-item">
+                <div class="qa-question">5. Difference between a Binary Tree and a BST?</div>
+                <div class="qa-answer">
+                    BST enforces that left child values are smaller than the parent node, and right child values are larger.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> A general corporate organizational chart is a **Binary Tree**. A well-organized digital dictionary directory where folders are strictly divided by alphabetical splits is a **BST**.</div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="qa-item">
+                <div class="qa-question">6. Explain Binary Search complexity.</div>
+                <div class="qa-answer">
+                    Logarithmic sorting search splits $\mathcal{O}(\log n)$ by discarding half the items at each step.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> Searching for a name in a physical phone book. You open up exactly to the middle, see if the target name comes before or after, and rip the wrong half of the book away. Repeat until you find the name.</div>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="qa-item">
+                <div class="qa-question">7. What is a Priority Queue?</div>
+                <div class="qa-answer">
+                    An extraction queue ordered by item priority weights rather than arrival times.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> A hospital emergency room triage desk. A patient with a minor scrape waits behind a patient arriving later with a serious injury.</div>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="qa-item">
+                <div class="qa-question">8. Contrast BFS and DFS.</div>
+                <div class="qa-answer">
+                    BFS explores wide layer circles using queues. DFS dives deep into branches using stacks.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> **BFS** is like a ripple radiating outward when you drop a pebble in water. **DFS** is like exploring a deep cave network, walking down a single tunnel until you hit a dead end before backtracking.</div>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="qa-item">
+                <div class="qa-question">9. Explain Quick Sort.</div>
+                <div class="qa-answer">
+                    Partitions elements dynamically around a chosen pivot to conquer sorting sets recursively.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> A teacher sorting test scores by picking a random passing grade (say, 75) as a pivot, making all students with lower grades stand on the left and higher grades stand on the right, then repeating the process for each group.</div>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="qa-item">
+                <div class="qa-question">10. What is a Balanced Tree?</div>
+                <div class="qa-answer">
+                    A self-adjusting tree structure that minimizes its height to guarantee optimal operations in $\mathcal{O}(\log n)$ time.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> A see-saw that automatically adjusts its pivot point when kids of different weights get on, preventing one side from being stuck on the ground.</div>
+                </div>
+            </div>
+
+            <!-- Q11 -->
+            <div class="qa-item">
+                <div class="qa-question">11. What is Dynamic Programming?</div>
+                <div class="qa-answer">
+                    Optimizes recursive overlapping problems by caching subproblem solutions.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> If I ask you what $1+1+1+1+1$ is, you count and say 5. If I write another $+1$ on the board, you don't recount from scratch; you remember the previous result was 5, add 1, and instantly say 6.</div>
+                </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="qa-item">
+                <div class="qa-question">12. Explain a Trie structure.</div>
+                <div class="qa-answer">
+                    A prefix string character search tree optimized for text retrieval operations.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> Google's search bar predicting text auto-completions as you type character by character.</div>
+                </div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="qa-item">
+                <div class="qa-question">13. How do you detect a cycle in a Linked List?</div>
+                <div class="qa-answer">
+                    Use Floyd's fast/slow twin tracking pointer approach.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> Two runners on a track. If the track is a straight line, the fast runner will never see the slow runner again. If the track is a loop, the fast runner will eventually lap the slow runner and run into them from behind.</div>
+                </div>
+            </div>
+
+            <!-- Q14 -->
+            <div class="qa-item">
+                <div class="qa-question">14. What are Tree Traversals?</div>
+                <div class="qa-answer">
+                    Inorder (Left-Root-Right), Preorder (Root-Left-Right), Postorder (Left-Right-Root).
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> **Inorder traversal** is like walking down a library aisle and reading book titles strictly from left to right in alphabetical order.</div>
+                </div>
+            </div>
+
+            <!-- Q15 -->
+            <div class="qa-item">
+                <div class="qa-question">15. What is a Monotonic Stack?</div>
+                <div class="qa-answer">
+                    A stack that keeps its elements strictly sorted to solve next-greater element problems efficiently in $\mathcal{O}(n)$ time.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> A line of people at a box office window. If a very tall person arrives, everyone shorter standing behind them leaves because they can no longer see the window.</div>
+                </div>
+            </div>
+
+            <!-- Q16 -->
+            <div class="qa-item">
+                <div class="qa-question">16. Explain a Graph.</div>
+                <div class="qa-answer">
+                    A non-linear network consisting of nodes (vertices) connected together by relationships (edges).
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> LinkedIn. People are the vertices, and mutual connections are the edges linking them together.</div>
+                </div>
+            </div>
+
+            <!-- Q17 -->
+            <div class="qa-item">
+                <div class="qa-question">17. Explain Binary Heaps.</div>
+                <div class="qa-answer">
+                    Tree structures where parents always maintain priority superiority over their children.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> A corporate hierarchy where the CEO sits at the top, and management values filter downward uniformly.</div>
+                </div>
+            </div>
+
+            <!-- Q18 -->
+            <div class="qa-item">
+                <div class="qa-question">18. What is the Sliding Window technique?</div>
+                <div class="qa-answer">
+                    Maintains a running window over a subarray to optimize nested loops into linear runtime.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> A moving car dashboard camera that continuously captures and updates footage of just the last 10 seconds of road travel.</div>
+                </div>
+            </div>
+
+            <!-- Q19 -->
+            <div class="qa-item">
+                <div class="qa-question">19. What is the Two-Pointer technique?</div>
+                <div class="qa-answer">
+                    Uses two reference index locations simultaneously to process collections efficiently.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> Checking if a word is a palindrome (like "radar") by having one finger check letters from the start while another finger checks letters from the end, moving toward the middle.</div>
+                </div>
+            </div>
+
+            <!-- Q20 -->
+            <div class="qa-item">
+                <div class="qa-question">20. What is Disjoint Set Union (DSU)?</div>
+                <div class="qa-answer">
+                    Tracks tracking clusters efficiently using Union and Find partition sets.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> Merging smaller kingdoms into empires during medieval wars, and checking if two villages belong to the same king.</div>
+                </div>
+            </div>
+
+            <!-- Q21 -->
+            <div class="qa-item">
+                <div class="qa-question">21. Merge Sort vs Quick Sort.</div>
+                <div class="qa-answer">
+                    Merge Sort guarantees stable sorting. Quick Sort is an in-place sort that performs faster on average.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> **Merge Sort** is like sorting a giant stack of mail by dividing it into small, manageable piles and then carefully merging them back together in order.</div>
+                </div>
+            </div>
+
+            <!-- Q22 -->
+            <div class="qa-item">
+                <div class="qa-question">22. Adjacency Matrix vs List.</div>
+                <div class="qa-answer">
+                    Matrices use fixed 2D configurations. Lists use dynamic linked track spaces to optimize sparse graphs.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> An **Adjacency Matrix** is a grid tracking flight routes between every city in the world (mostly empty zeros). An **Adjacency List** is an address booklet listing just the destinations you can actually fly to from each airport.</div>
+                </div>
+            </div>
+
+            <!-- Q23 -->
+            <div class="qa-item">
+                <div class="qa-question">23. What is Amortized Time Complexity?</div>
+                <div class="qa-answer">
+                    The average cost of an operation over a long sequence, accounting for rare high-cost steps.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> Paying a low monthly rent fee for your apartment, punctuated by a rare, expensive annual security deposit update. The average cost per day remains low and predictable.</div>
+                </div>
+            </div>
+
+            <!-- Q24 -->
+            <div class="qa-item">
+                <div class="qa-question">24. Explain Dijkstra's Algorithm.</div>
+                <div class="qa-answer">
+                    Finds the shortest paths between nodes in a weighted network graph.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> Google Maps calculating the absolute fastest driving route to your destination, accounting for traffic delays on different roads.</div>
+                </div>
+            </div>
+
+            <!-- Q25 -->
+            <div class="qa-item">
+                <div class="qa-question">25. Recursion vs Iteration.</div>
+                <div class="qa-answer">
+                    Recursion uses a self-calling structure. Iteration repeats actions linearly using explicit loops.
+                    <div class="example-box"><strong>💡 Real-World Example:</strong> **Recursion** is like Russian nesting dolls—you open a doll to find a smaller version inside until you reach the smallest doll. **Iteration** is like counting down steps on a ladder one by one.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.qa-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                const answer = parent.querySelector('.qa-answer');
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

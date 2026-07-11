@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Upload | MockMate AI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Patrick+Hand&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+
+            min-height:100vh;
+
+            background:url("{{ url_for('static', filename='images/notebook_bg.jpg') }}");
+
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            font-family:'Patrick Hand', cursive;
+        }
+
+        .upload-card{
+
+            width:650px;
+
+            background:rgba(255,255,255,0.95);
+
+            padding:40px;
+
+            border-radius:25px;
+
+            box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+            text-align:center;
+        }
+
+        .title{
+
+            font-family:'Caveat',cursive;
+
+            font-size:60px;
+
+            color:#7b68ee;
+
+            margin-bottom:10px;
+        }
+
+        .subtitle{
+
+            color:#666;
+
+            font-size:20px;
+
+            margin-bottom:30px;
+        }
+
+        .upload-box{
+
+            border:3px dashed #cfc2ff;
+
+            background:#faf7ff;
+
+            padding:40px;
+
+            border-radius:20px;
+
+            margin-bottom:25px;
+        }
+
+        .upload-icon{
+
+            font-size:70px;
+
+            margin-bottom:15px;
+        }
+
+        .file-input{
+
+            width:100%;
+
+            padding:12px;
+
+            margin-top:20px;
+
+            font-size:17px;
+        }
+
+        .upload-btn{
+
+            width:100%;
+
+            padding:16px;
+
+            border:none;
+
+            border-radius:15px;
+
+            background:#cfc2ff;
+
+            color:#222;
+
+            font-size:20px;
+
+            cursor:pointer;
+
+            transition:.3s;
+        }
+
+        .upload-btn:hover{
+
+            background:#b7a6ff;
+
+            transform:translateY(-2px);
+        }
+
+        .info{
+
+            margin-top:25px;
+
+            background:#faf7ff;
+
+            padding:20px;
+
+            border-radius:15px;
+
+            text-align:left;
+        }
+
+        .info h3{
+
+            color:#7b68ee;
+
+            margin-bottom:10px;
+        }
+
+        .info li{
+
+            margin:8px 0;
+        }
+
+        .quote{
+
+            margin-top:30px;
+
+            font-family:'Caveat',cursive;
+
+            font-size:30px;
+
+            color:#8e7dff;
+        }
+
+        .flash{
+
+            margin-bottom:20px;
+
+            padding:15px;
+
+            border-radius:12px;
+
+            background:#ffeeba;
+
+            color:#444;
+
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="upload-card">
+
+    <div class="title">
+        MockMate AI
+    </div>
+
+    <div class="subtitle">
+        Upload Your Resume to Start Your AI Mock Interview
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="flash">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('upload_resume') }}"
+          method="POST"
+          enctype="multipart/form-data">
+
+        <div class="upload-box">
+
+            <div class="upload-icon">
+                📄
+            </div>
+
+            <p><strong>Select Your Resume</strong></p>
+
+            <input
+                type="file"
+                name="resume"
+                class="file-input"
+                accept=".pdf,.doc,.docx,.txt"
+                required>
+
+        </div>
+
+        <button
+            type="submit"
+            class="upload-btn">
+
+            🚀 Upload Resume
+
+        </button>
+
+    </form>
+
+    <div class="info">
+
+        <h3>Supported Formats</h3>
+
+        <ul>
+            <li>✅ PDF (.pdf)</li>
+            <li>✅ DOC (.doc)</li>
+            <li>✅ DOCX (.docx)</li>
+            <li>✅ TXT (.txt)</li>
+        </ul>
+
+    </div>
+
+    <div class="quote">
+        "Your Resume Opens the Door, Your Skills Get You In."
+    </div>
+
+</div>
+
+</body>
+</html>

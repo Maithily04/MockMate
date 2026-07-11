@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "question": "What is HTML?",
+    "answer": "HTML (HyperText Markup Language) is the standard markup language used to create and structure pages across the web.",
+    "example": "<!DOCTYPE html>\n<html>\n  <body>\n    <h1>Hello World</h1>\n  </body>\n</html>"
+  },
+  {
+    "id": 2,
+    "question": "Purpose of DOCTYPE?",
+    "answer": "It informs the web browser about the version of HTML the page is written in, ensuring standard rendering behavior.",
+    "example": "<!DOCTYPE html>"
+  },
+  {
+    "id": 3,
+    "question": "What are HTML Tags?",
+    "answer": "Tags are keywords enclosed within angle brackets used to create structures, elements, and formats.",
+    "example": "<p>This is a paragraph tag</p>"
+  },
+  {
+    "id": 4,
+    "question": "What is an HTML Element?",
+    "answer": "An element is defined by an opening tag, custom inner content, and a matching closing tag.",
+    "example": "<h1>Element Content</h1>"
+  },
+  {
+    "id": 5,
+    "question": "HTML vs HTML5?",
+    "answer": "HTML5 is the modern evolution introducing native video/audio handlers, semantic landmarks, and offline storages.",
+    "example": "<!-- HTML5 Features -->\n<video src='video.mp4' controls></video>"
+  },
+  {
+    "id": 6,
+    "question": "What are Semantic Elements?",
+    "answer": "Elements that clearly describe their meaning both to the browser and the developer.",
+    "example": "<header></header>\n<nav></nav>\n<main></main>\n<footer></footer>"
+  },
+  {
+    "id": 7,
+    "question": "Block-Level Elements?",
+    "answer": "Elements that automatically start on a new line and stretch out to fill the entire available layout container width.",
+    "example": "<div>, <p>, <h1>-<h6>, <section>"
+  },
+  {
+    "id": 8,
+    "question": "Inline Elements?",
+    "answer": "Elements that only take up as much space as their contents dictate and do not break the continuous flow of text lines.",
+    "example": "<span>, <a>, <strong>, <em>"
+  },
+  {
+    "id": 9,
+    "question": "Difference between div and span?",
+    "answer": "div acts as a generic block-level structural layout container, while span acts as an inline semantic styling text wrapper.",
+    "example": "<div>\n  <span>Styled Inline Text</span>\n</div>"
+  }
+]

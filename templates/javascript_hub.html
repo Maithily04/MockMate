@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript Study Hub | MockMate AI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Patrick+Hand&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+
+            min-height:100vh;
+
+            background:url("{{ url_for('static', filename='images/notebook_bg.jpg') }}");
+
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+
+            font-family:'Patrick Hand', cursive;
+        }
+
+        .container{
+
+            width:90%;
+
+            max-width:1200px;
+
+            margin:auto;
+
+            padding:40px 0;
+        }
+
+        .back-btn{
+
+            display:inline-block;
+
+            padding:12px 25px;
+
+            background:#cfc2ff;
+
+            color:#333;
+
+            text-decoration:none;
+
+            border-radius:15px;
+
+            margin-bottom:25px;
+
+            transition:0.3s;
+        }
+
+        .back-btn:hover{
+
+            background:#b7a6ff;
+        }
+
+        .heading{
+
+            text-align:center;
+
+            font-family:'Caveat', cursive;
+
+            font-size:4.5rem;
+
+            color:#7b68ee;
+
+            margin-bottom:10px;
+        }
+
+        .subtitle{
+
+            text-align:center;
+
+            font-size:1.3rem;
+
+            color:#666;
+
+            margin-bottom:50px;
+        }
+
+        .cards{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,minmax(300px,1fr));
+
+            gap:30px;
+        }
+
+        .card{
+
+            background:rgba(255,255,255,0.95);
+
+            border-radius:25px;
+
+            padding:35px;
+
+            text-decoration:none;
+
+            text-align:center;
+
+            box-shadow:
+            0 8px 20px rgba(0,0,0,0.10);
+
+            transition:0.3s;
+        }
+
+        .card:hover{
+
+            transform:
+            translateY(-8px)
+            scale(1.03);
+        }
+
+        .card h2{
+
+            font-family:'Caveat', cursive;
+
+            font-size:2.8rem;
+
+            color:#7b68ee;
+
+            margin-bottom:15px;
+        }
+
+        .card p{
+
+            font-size:1.15rem;
+
+            color:#444;
+
+            line-height:1.8;
+        }
+
+        .roadmap{
+
+            margin-top:60px;
+
+            background:rgba(255,255,255,0.95);
+
+            border-radius:25px;
+
+            padding:30px;
+
+            box-shadow:
+            0 8px 20px rgba(0,0,0,0.10);
+        }
+
+        .roadmap h2{
+
+            text-align:center;
+
+            font-family:'Caveat', cursive;
+
+            color:#7b68ee;
+
+            font-size:3rem;
+
+            margin-bottom:20px;
+        }
+
+        .roadmap ul{
+
+            list-style:none;
+
+            font-size:1.2rem;
+
+            line-height:2;
+        }
+
+        .roadmap li{
+
+            padding:5px 0;
+        }
+
+        .quote{
+
+            text-align:center;
+
+            margin-top:50px;
+
+            font-family:'Caveat', cursive;
+
+            font-size:2rem;
+
+            color:#8e7dff;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <a href="/dashboard"
+       class="back-btn">
+
+        ← Dashboard
+
+    </a>
+
+    <h1 class="heading">
+        JavaScript Study Hub
+    </h1>
+
+    <p class="subtitle">
+        Learn • Revise • Practice • Crack Placements
+    </p>
+
+    <div class="cards">
+
+        <a href="/js_cheatsheet"
+           class="card">
+
+            <h2>Cheatsheet</h2>
+
+            <p>
+
+                Complete JavaScript revision notes
+                covering variables, functions,
+                DOM, events, promises,
+                async-await and more.
+
+            </p>
+
+        </a>
+
+        <a href="/js_flashcards"
+           class="card">
+
+            <h2>Flashcards</h2>
+
+            <p>
+
+                Quick notebook-style flashcards
+                for interview preparation and
+                last-minute revision.
+
+            </p>
+
+        </a>
+
+        <a href="/js_questions"
+           class="card">
+
+            <h2>Interview Questions</h2>
+
+            <p>
+
+                Practice the most frequently
+                asked JavaScript placement
+                interview questions with answers.
+
+            </p>
+
+        </a>
+
+    </div>
+
+    <div class="roadmap">
+
+    <div class="quote">
+
+        "JavaScript Brings Websites To Life. Practice Brings Careers To Life."
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+[
+{
+"question1": "What is Python?",
+"answer": "Python is a high-level, interpreted, object-oriented programming language known for its readability and simplicity.",
+"example": "print('Hello World')"
+},
+{
+"question2": "What are the key features of Python?",
+"answer": "Easy syntax, interpreted execution, object-oriented programming, dynamic typing, large standard library, cross-platform support.",
+"example": "name = 'Maithily'"
+},
+{
+"question3": "What is the difference between a List and a Tuple?",
+"answer": "Lists are mutable while Tuples are immutable.",
+"example": "my_list=[1,2,3]\nmy_tuple=(1,2,3)"
+},
+{
+"question4": "What is the difference between List, Tuple, Set and Dictionary?",
+"answer": "List: Ordered & Mutable. Tuple: Ordered & Immutable. Set: Unordered & Unique. Dictionary: Key-Value pairs.",
+"example": "my_dict={'name':'John'}"
+},
+{
+"question5": "What is a Python Dictionary?",
+"answer": "A Dictionary stores data as key-value pairs.",
+"example": "student={'name':'John','age':21}"
+},
+{
+"question6": "What is the difference between == and is?",
+"answer": "== compares values. is compares object identity (memory location).",
+"example": "a=[1]\nb=[1]"
+},
+{
+"question7": "What is a Function in Python?",
+"answer": "A function is a reusable block of code designed to perform a specific task.",
+"example": "def greet():\n    print('Welcome')"
+},
+{
+"question8": "What are *args and **kwargs?",
+"answer": "*args accepts multiple positional arguments. **kwargs accepts multiple keyword arguments.",
+"example": "def add(*args):\n    return sum(args)"
+},
+{
+"question9": "What is Recursion?",
+"answer": "Recursion occurs when a function calls itself until a base condition is met.",
+"example": "def factorial(n):\n    return 1 if n==1 else n*factorial(n-1)"
+},
+{
+"question10": "What is the difference between Deep Copy and Shallow Copy?",
+"answer": "Shallow Copy copies references. Deep Copy creates independent copies.",
+"example": "import copy\ncopy.deepcopy(a)"
+},
+{
+"question11": "What are Python Modules?",
+"answer": "Modules are Python files containing reusable code.",
+"example": "import math"
+},
+{
+"question12": "What is a Package in Python?",
+"answer": "A package is a collection of related modules.",
+"example": "from math import factorial"
+},
+{
+"question13": "What is Exception Handling?",
+"answer": "Exception handling prevents crashes by handling runtime errors.",
+"example": "try:\n    print(10/0)\nexcept ZeroDivisionError:\n    print('Error')"
+},
+{
+"question14": "What is the difference between Syntax Error and Exception?",
+"answer": "Syntax Error occurs before execution. Exception occurs during execution.",
+"example": "print('Hello')"
+},
+{
+"question15": "What is Object-Oriented Programming (OOP)?",
+"answer": "OOP is a programming paradigm based on objects and classes.",
+"example": "class Student:\n    pass"
+},
+{
+"question16": "What is a Class and Object?",
+"answer": "A class is a blueprint. An object is an instance of a class.",
+"example": "s1=Student('John')"
+},
+{
+"question17": "What is Inheritance?",
+"answer": "Inheritance allows one class to acquire properties and methods from another class.",
+"example": "class Dog(Animal):\n    pass"
+},
+{
+"question18": "What is Polymorphism?",
+"answer": "Polymorphism allows methods with the same name to behave differently.",
+"example": "dog.sound()\ncat.sound()"
+},
+{
+"question19": "What is Encapsulation?",
+"answer": "Encapsulation binds data and methods together while restricting access.",
+"example": "self.__marks=90"
+},
+{
+"question20": "What is Abstraction?",
+"answer": "Abstraction hides implementation details and shows essential functionality.",
+"example": "from abc import ABC"
+},
+{
+"question21": "What is a Lambda Function?",
+"answer": "A lambda function is an anonymous one-line function.",
+"example": "square=lambda x:x*x"
+},
+{
+"question22": "What are List Comprehensions?",
+"answer": "List comprehensions provide a concise way to create lists.",
+"example": "[x*x for x in range(5)]"
+},
+{
+"question23": "What is the difference between remove(), pop(), and del?",
+"answer": "remove() deletes by value, pop() deletes by index, del deletes elements or objects.",
+"example": "numbers.pop()"
+},
+{
+"question24": "What is the difference between append() and extend()?",
+"answer": "append() adds an object as a single element. extend() adds elements individually.",
+"example": "list1.extend([3,4])"
+},
+{
+"question25": "What are Generators?",
+"answer": "Generators produce values one at a time using yield.",
+"example": "def numbers():\n    yield 1"
+},
+{
+"question26": "What is the difference between Python Lists and NumPy Arrays?",
+"answer": "Lists are general-purpose. NumPy arrays are optimized for numerical computation.",
+"example": "np.array([1,2,3])"
+},
+{
+"question27": "What is the difference between Mutable and Immutable Objects?",
+"answer": "Mutable objects can be modified. Immutable objects cannot.",
+"example": "list vs tuple"
+},
+{
+"question28": "What is the Global Interpreter Lock (GIL)?",
+"answer": "GIL allows only one thread to execute Python bytecode at a time in CPython.",
+"example": "import threading"
+},
+{
+"question29": "What is the difference between range() and xrange()?",
+"answer": "Python 3 uses range(). xrange() existed only in Python 2.",
+"example": "for i in range(5):"
+},
+{
+"question30": "What is PEP 8?",
+"answer": "PEP 8 is Python's official style guide for writing readable code.",
+"example": "def calculate_sum(a,b):\n    return a+b"
+}
+]

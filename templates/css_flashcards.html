@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MockMate AI - CSS Flashcards</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        body { background-image: url("{{ url_for('static', filename='images/notebook_bg.jpg') }}"); background-size: cover; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { width: 600px; text-align: center; }
+        .flashcard-wrapper { background: rgba(255, 255, 255, 0.9); padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 20px; min-height: 250px; display: flex; flex-direction: column; justify-content: center; cursor: pointer; }
+        h1 { font-family: 'Caveat', cursive; color: #e67e22; font-size: 3rem; }
+        .counter { font-family: 'Patrick Hand', cursive; background: #ffeaa7; padding: 5px 15px; border-radius: 20px; display: inline-block; color: #d35400; margin-bottom: 20px; }
+        .content-area { font-family: 'Patrick Hand', cursive; font-size: 1.5rem; }
+        .controls { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+        button { font-family: 'Patrick Hand', cursive; background: #e67e22; color: white; border: none; padding: 10px 25px; border-radius: 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🎨 CSS Flashcards</h1>
+    <div class="counter" id="counter">1 / 10</div>
+    <div class="flashcard-wrapper" id="card" onclick="this.classList.toggle('flipped')">
+        <div id="display-area" class="content-area">
+            <h2 id="text-top">Question</h2>
+            <p id="text-bottom">Click to Flip</p>
+        </div>
+    </div>
+    <div class="controls">
+        <button onclick="prevCard()">← Previous</button>
+        <button onclick="nextCard()">Next →</button>
+    </div>
+</div>
+<script>
+    const flashcards = [
+        {q: "What does CSS stand for?", a: "Cascading Style Sheets"},
+        {q: "Which property changes text color?", a: "color"},
+        {q: "What is the Box Model?", a: "Content, Padding, Border, Margin"},
+        {q: "How do you center an item with Flexbox?", a: "justify-content: center; align-items: center;"},
+        {q: "What is the difference between relative and absolute positioning?", a: "Relative is relative to normal position; absolute is relative to the nearest positioned ancestor."},
+        {q: "How do you make an element invisible but keep space?", a: "visibility: hidden;"},
+        {q: "What is z-index?", a: "Controls the vertical stacking order of elements."},
+        {q: "What is a pseudo-class?", a: "A keyword to define a special state of an element (e.g., :hover)."},
+        {q: "What does display: none do?", a: "Removes the element from the document layout."},
+        {q: "What is the default value of position?", a: "static"}
+    ];
+    let currentIndex = 0;
+    function updateCard() { document.getElementById('text-top').innerText = flashcards[currentIndex].q; document.getElementById('text-bottom').innerText = "Click to Flip"; document.getElementById('counter').innerText = `${currentIndex + 1} / 10`; }
+    document.getElementById('card').addEventListener('click', function() { if(this.classList.contains('flipped')) { document.getElementById('text-bottom').innerText = flashcards[currentIndex].a; } else { document.getElementById('text-bottom').innerText = "Click to Flip"; } });
+    function nextCard() { if(currentIndex < 9) { currentIndex++; updateCard(); document.getElementById('card').classList.remove('flipped'); } }
+    function prevCard() { if(currentIndex > 0) { currentIndex--; updateCard(); document.getElementById('card').classList.remove('flipped'); } }
+    updateCard();
+</script>
+</body>
+</html>

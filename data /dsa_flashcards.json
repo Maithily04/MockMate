@@ -1,0 +1,162 @@
+[
+{
+"question": "What is a Data Structure?",
+"answer": "A Data Structure is a way of organizing and storing data efficiently."
+},
+{
+"question": "What is an Algorithm?",
+"answer": "An Algorithm is a step-by-step procedure used to solve a problem."
+},
+{
+"question": "What is Time Complexity?",
+"answer": "Time Complexity measures how execution time grows with input size."
+},
+{
+"question": "What is Space Complexity?",
+"answer": "Space Complexity measures how much memory an algorithm requires."
+},
+{
+"question": "What is Big O Notation?",
+"answer": "Big O Notation represents the worst-case performance of an algorithm."
+},
+{
+"question": "What is an Array?",
+"answer": "An Array is a collection of elements stored in contiguous memory locations."
+},
+{
+"question": "Array Access Time Complexity?",
+"answer": "O(1)"
+},
+{
+"question": "What is a Linked List?",
+"answer": "A Linked List is a linear data structure where nodes are connected using pointers."
+},
+{
+"question": "Difference Between Array and Linked List?",
+"answer": "Arrays provide faster access, while Linked Lists provide easier insertion and deletion."
+},
+{
+"question": "What is a Stack?",
+"answer": "A Stack follows the LIFO (Last In First Out) principle."
+},
+{
+"question": "What are Stack Operations?",
+"answer": "Push, Pop, Peek."
+},
+{
+"question": "What is a Queue?",
+"answer": "A Queue follows the FIFO (First In First Out) principle."
+},
+{
+"question": "What are Queue Operations?",
+"answer": "Enqueue, Dequeue."
+},
+{
+"question": "Difference Between Stack and Queue?",
+"answer": "Stack uses LIFO while Queue uses FIFO."
+},
+{
+"question": "What is a Tree?",
+"answer": "A Tree is a hierarchical data structure consisting of nodes connected by edges."
+},
+{
+"question": "What is a Binary Tree?",
+"answer": "A Binary Tree is a tree where each node has at most two children."
+},
+{
+"question": "What is a Binary Search Tree (BST)?",
+"answer": "A BST is a binary tree where left child < parent < right child."
+},
+{
+"question": "What is Tree Traversal?",
+"answer": "Traversal means visiting every node in a tree."
+},
+{
+"question": "Types of Tree Traversal?",
+"answer": "Inorder, Preorder, Postorder."
+},
+{
+"question": "What is a Graph?",
+"answer": "A Graph consists of vertices (nodes) and edges."
+},
+{
+"question": "What is BFS?",
+"answer": "Breadth First Search traverses nodes level by level using a Queue."
+},
+{
+"question": "What is DFS?",
+"answer": "Depth First Search explores nodes deeply before backtracking."
+},
+{
+"question": "Time Complexity of BFS?",
+"answer": "O(V + E)"
+},
+{
+"question": "Time Complexity of DFS?",
+"answer": "O(V + E)"
+},
+{
+"question": "What is Binary Search?",
+"answer": "Binary Search finds an element in a sorted array by repeatedly dividing the search space."
+},
+{
+"question": "Time Complexity of Binary Search?",
+"answer": "O(log n)"
+},
+{
+"question": "What is Linear Search?",
+"answer": "Linear Search checks each element one by one."
+},
+{
+"question": "Time Complexity of Linear Search?",
+"answer": "O(n)"
+},
+{
+"question": "What is Recursion?",
+"answer": "Recursion occurs when a function calls itself."
+},
+{
+"question": "What is Dynamic Programming?",
+"answer": "Dynamic Programming stores results of subproblems to avoid recomputation."
+},
+{
+"question": "Applications of Dynamic Programming?",
+"answer": "Fibonacci, Knapsack, Shortest Path."
+},
+{
+"question": "What is a Greedy Algorithm?",
+"answer": "A Greedy Algorithm makes the locally optimal choice at each step."
+},
+{
+"question": "Examples of Greedy Algorithms?",
+"answer": "Fractional Knapsack, Huffman Coding, Activity Selection."
+},
+{
+"question": "What is Sorting?",
+"answer": "Sorting arranges data in ascending or descending order."
+},
+{
+"question": "Common Sorting Algorithms?",
+"answer": "Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort."
+},
+{
+"question": "Time Complexity of Bubble Sort?",
+"answer": "O(n²)"
+},
+{
+"question": "Time Complexity of Merge Sort?",
+"answer": "O(n log n)"
+},
+{
+"question": "Time Complexity of Quick Sort (Average)?",
+"answer": "O(n log n)"
+},
+{
+"question": "Time Complexity of Quick Sort (Worst)?",
+"answer": "O(n²)"
+},
+{
+"question": "Difference Between Merge Sort and Quick Sort?",
+"answer": "Merge Sort is stable and requires extra space. Quick Sort is usually faster and works in-place."
+}
+]

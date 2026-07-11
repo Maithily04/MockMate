@@ -1,0 +1,132 @@
+[
+{
+"question1": "What is JavaScript?",
+"answer": "JavaScript is a high-level, interpreted programming language used to create interactive and dynamic web pages.",
+"example": "console.log('Hello World');"
+},
+{
+"question": "What are the different data types in JavaScript?",
+"answer": "JavaScript supports String, Number, Boolean, Undefined, Null, Object, Symbol, and BigInt.",
+"example": "let name='John'; let age=21; let isStudent=true;"
+},
+{
+"question3": "What is the difference between var, let, and const?",
+"answer": "var is function scoped and can be redeclared. let is block scoped and can be reassigned. const is block scoped and cannot be reassigned.",
+"example": "let age=20; age=21; const country='India';"
+},
+{
+"question4": "What is the difference between == and ===?",
+"answer": "== compares values after type conversion. === compares both value and data type.",
+"example": "console.log(5=='5'); console.log(5==='5');"
+},
+{
+"question5": "What is Hoisting?",
+"answer": "Hoisting moves declarations to the top of their scope before execution.",
+"example": "console.log(a); var a=10;"
+},
+{
+"question6": "What is a Closure?",
+"answer": "A closure remembers variables from its outer scope even after the outer function finishes execution.",
+"example": "function outer(){ let count=0; return function(){ count++; return count; }};"
+},
+{
+"question7": "What is the difference between null and undefined?",
+"answer": "undefined means a variable has no assigned value. null represents an intentional absence of value.",
+"example": "let a; let b=null;"
+},
+{
+"question8": "What is an Arrow Function?",
+"answer": "Arrow functions provide a shorter syntax and do not have their own this keyword.",
+"example": "const add=(a,b)=>a+b;"
+},
+{
+"question9": "What is the difference between Function Declaration and Function Expression?",
+"answer": "Function declarations are hoisted while function expressions are not fully hoisted.",
+"example": "function greet(){} const greet=function(){};"
+},
+{
+"question10": "What is the DOM?",
+"answer": "DOM represents an HTML document as a tree structure that JavaScript can manipulate.",
+"example": "document.getElementById('title').innerHTML='Welcome';"
+},
+{
+"question11": "What are Events in JavaScript?",
+"answer": "Events are actions such as clicking, typing, or loading a page.",
+"example": "button.addEventListener('click', function(){});"
+},
+{
+"question12": "What is Event Bubbling?",
+"answer": "Event bubbling occurs when an event propagates upward through parent elements.",
+"example": "child.addEventListener('click', ()=>{});"
+},
+{
+"question13": "What is Event Delegation?",
+"answer": "Event delegation uses a parent element to handle events for child elements.",
+"example": "list.addEventListener('click', function(event){});"
+},
+{
+"question14": "What is the difference between let and const?",
+"answer": "let variables can be reassigned. const variables cannot be reassigned after initialization.",
+"example": "let age=20; age=25; const pi=3.14;"
+},
+{
+"question15": "What is a Callback Function?",
+"answer": "A callback function is passed as an argument to another function and executed later.",
+"example": "function greet(name,callback){ callback(); }"
+},
+{
+"question16": "What is a Promise?",
+"answer": "A Promise represents the eventual completion or failure of an asynchronous operation.",
+"example": "let promise=new Promise((resolve,reject)=>{ resolve('Success'); });"
+},
+{
+"question17": "What are the states of a Promise?",
+"answer": "Pending, Fulfilled, and Rejected.",
+"example": "promise.then(data=>console.log(data));"
+},
+{
+"question18": "What is Async/Await?",
+"answer": "Async/Await simplifies asynchronous programming and makes code easier to read.",
+"example": "async function fetchData(){ return 'Data'; }"
+},
+{
+"question19": "What is the difference between synchronous and asynchronous programming?",
+"answer": "Synchronous code executes line by line. Asynchronous code runs without blocking execution.",
+"example": "setTimeout(()=>console.log('Delayed'),1000);"
+},
+{
+"question20": "What is the this keyword?",
+"answer": "The this keyword refers to the object currently executing the function.",
+"example": "const person={name:'John', greet(){ console.log(this.name); }};"
+},
+{
+"question21": "What is the difference between map() and forEach()?",
+"answer": "map() returns a new array. forEach() performs operations without returning a new array.",
+"example": "let doubled=nums.map(num=>num*2);"
+},
+{
+"question22": "What is Destructuring?",
+"answer": "Destructuring extracts values from arrays or objects into variables.",
+"example": "const {name,age}=person;"
+},
+{
+"question23": "What is the Spread Operator?",
+"answer": "The spread operator expands arrays or objects into individual elements.",
+"example": "let arr2=[...arr1,3,4];"
+},
+{
+"question24": "What is Local Storage?",
+"answer": "Local Storage stores data in the browser permanently until manually removed.",
+"example": "localStorage.setItem('name','John');"
+},
+{
+"question25": "What is the difference between Local Storage and Session Storage?",
+"answer": "Local Storage persists after browser closure. Session Storage is cleared when the tab closes.",
+"example": "sessionStorage.setItem('user','John');"
+},
+{
+"question26": "What is the difference between call(), apply(), and bind()?",
+"answer": "call() invokes immediately with arguments. apply() invokes immediately with an array of arguments. bind() returns a new function.",
+"example": "greet.call(person);"
+}
+]

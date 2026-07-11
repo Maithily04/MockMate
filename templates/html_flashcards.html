@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Flashcards | MockMate</title>
+    
+    <!-- External typography and structural resets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fira+Code:wght@400;500&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           NOTEBOOK STYLING & CONTAINER
+           ========================================================================== */
+        body {
+            background-image: url("../static/images/notebook_bg.jpg");
+            background-color: #fcf8f2;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Patrick Hand', cursive;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .notebook-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.94);
+            border-left: 45px solid #f9dad6; /* Notebook spiral binding area */
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            padding: 40px 30px;
+            min-height: 550px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .notebook-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 12px;
+            bottom: 0;
+            width: 2px;
+            background: #f2a6a6;
+            opacity: 0.5;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-section h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 3.5rem;
+            color: #6c5ce7;
+            margin: 0;
+        }
+
+        .header-section p {
+            font-size: 1.3rem;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        /* Counter Box */
+        .counter-badge {
+            background: #f0e6ff;
+            color: #6c5ce7;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* ==========================================================================
+           3D CARD CAROUSEL VIEW
+           ========================================================================== */
+        .carousel-view {
+            width: 100%;
+            max-width: 550px;
+            perspective: 1000px;
+            height: 280px;
+            margin-bottom: 35px;
+        }
+
+        .flashcard-container {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-radius: 25px;
+        }
+
+        /* State trigger when user flips card */
+        .flashcard-container.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 25px;
+            border: 1px solid #eef0f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .card-front {
+            background-color: #ffffff;
+            color: #6c5ce7;
+        }
+
+        .card-front h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .flip-hint {
+            font-size: 1.1rem;
+            color: #aaa;
+            margin-top: auto;
+        }
+
+        .card-back {
+            background-color: #f0e6ff;
+            color: #2d3748;
+            transform: rotateY(180deg);
+            justify-content: flex-start;
+            text-align: left;
+            overflow-y: auto;
+        }
+
+        .card-back .section-label {
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            color: #6c5ce7;
+            font-weight: bold;
+            margin-bottom: 4px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .card-back .answer-text {
+            font-size: 1.2rem;
+            line-height: 1.4;
+            color: #4a5568;
+            margin-bottom: 12px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .card-back .code-block {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            width: 100%;
+            white-space: pre-wrap;
+            box-sizing: border-box;
+            border-left: 4px solid #b8a1ff;
+            color: #23272a;
+            margin: 0;
+        }
+
+        /* ==========================================================================
+           NAVIGATION CONTROLS
+           ========================================================================== */
+        .controls-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            background: #b8a1ff;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 15px;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(150, 117, 255, 0.2);
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .nav-btn:hover {
+            background: #9575ff;
+        }
+
+        .nav-btn:active {
+            transform: scale(0.96);
+        }
+
+        @media (max-width: 600px) {
+            .notebook-container { border-left: 20px solid #f9dad6; padding: 25px 15px; }
+            .header-section h1 { font-size: 2.8rem; }
+            .carousel-view { height: 320px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="notebook-container">
+    <header class="header-section">
+        <h1>🌐 HTML Flashcards</h1>
+        <p>Click the card to flip, or use the controls to navigate.</p>
+    </header>
+
+    <!-- Dynamic Counter -->
+    <div class="counter-badge" id="card-counter">1 / 10</div>
+
+    <!-- Active Carousel View Window -->
+    <div class="carousel-view">
+        <div class="flashcard-container" id="active-flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flashcard-inner" id="card-inner-target">
+                <!-- Injected via JavaScript below -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Next & Previous Buttons -->
+    <div class="controls-wrapper">
+        <button class="nav-btn" onclick="changeCard(-1)">← Previous</button>
+        <button class="nav-btn" onclick="changeCard(1)">Next →</button>
+    </div>
+</div>
+
+<script>
+    // Total 10 Clean HTML Concept Flashcards
+    const htmlFlashcardsData = [
+        {
+            "id": 1,
+            "question": "What is HTML?",
+            "answer": "HTML (HyperText Markup Language) is the standard markup language used to structure pages across the web.",
+            "example": "<!DOCTYPE html>\n<html>\n  <body>\n    <h1>Hello World</h1>\n  </body>\n</html>"
+        },
+        {
+            "id": 2,
+            "question": "Purpose of DOCTYPE?",
+            "answer": "It informs the web browser about the version of HTML the page is written in, ensuring standard browser rendering behavior.",
+            "example": "<!DOCTYPE html>"
+        },
+        {
+            "id": 3,
+            "question": "What are HTML Tags?",
+            "answer": "Tags are keywords enclosed within angle brackets used to create structural formats.",
+            "example": "<p>This is a paragraph tag</p>"
+        },
+        {
+            "id": 4,
+            "question": "What is an HTML Element?",
+            "answer": "An element is defined by an opening tag, custom inner content, and a matching closing tag.",
+            "example": "<h1>Element Content</h1>"
+        },
+        {
+            "id": 5,
+            "question": "HTML vs HTML5?",
+            "answer": "HTML5 is the modern evolution introducing native video/audio handlers, semantic landmarks, and storage spaces.",
+            "example": "<video src='clip.mp4' controls></video>"
+        },
+        {
+            "id": 6,
+            "question": "What are Semantic Elements?",
+            "answer": "Elements that clearly describe their meaning both to the browser engine and the developer context.",
+            "example": "<header></header>\n<nav></nav>\n<main></main>\n<footer></footer>"
+        },
+        {
+            "id": 7,
+            "question": "Block-Level Elements?",
+            "answer": "Elements that automatically start on a new line and stretch out to fill the entire layout width.",
+            "example": "<div>, <p>, <h1>, <section>"
+        },
+        {
+            "id": 8,
+            "question": "Inline Elements?",
+            "answer": "Elements that only take up as much space as their contents dictate and don't break textual layout lines.",
+            "example": "<span>, <a>, <strong>, <em>"
+        },
+        {
+            "id": 9,
+            "question": "Difference between div and span?",
+            "answer": "div acts as a block-level content organizer container, while span is an inline container for contextual texts.",
+            "example": "<div>\n  <span>Styled Text</span>\n</div>"
+        },
+        {
+            "id": 10,
+            "question": "What are HTML Attributes?",
+            "answer": "Attributes provide key operational features or data details configurations for properties inside HTML elements.",
+            "example": "<img src='logo.png' alt='MockMate Logo'>"
+        }
+    ];
+
+    let currentIndex = 0;
+
+    function renderActiveCard() {
+        const cardTarget = document.getElementById("card-inner-target");
+        const counterTarget = document.getElementById("card-counter");
+        const containerWrapper = document.getElementById("active-flashcard");
+        
+        // Remove flipped state cleanly before update animation
+        containerWrapper.classList.remove('flipped');
+
+        const currentItem = htmlFlashcardsData[currentIndex];
+
+        // Update Counter Layout
+        counterTarget.innerText = `${currentIndex + 1} / ${htmlFlashcardsData.length}`;
+
+        // Render card content structure
+        cardTarget.innerHTML = `
+            <div class="card-front">
+                <h2>${currentItem.question}</h2>
+                <div class="flip-hint">🔄 Click to Flip</div>
+            </div>
+            <div class="card-back">
+                <div class="section-label">Answer</div>
+                <p class="answer-text">${currentItem.answer}</p>
+                ${currentItem.example ? `
+                    <div class="section-label">Example</div>
+                    <pre class="code-block"><code>${escapeHTML(currentItem.example)}</code></pre>
+                ` : ''}
+            </div>
+        `;
+    }
+
+    function changeCard(direction) {
+        currentIndex += direction;
+
+        // Infinite loop cycle boundary controls
+        if (currentIndex >= htmlFlashcardsData.length) {
+            currentIndex = 0;
+        } else if (currentIndex < 0) {
+            currentIndex = htmlFlashcardsData.length - 1;
+        }
+
+        renderActiveCard();
+    }
+
+    function escapeHTML(str) {
+        return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    // Run first rendering view on window context setup complete
+    document.addEventListener("DOMContentLoaded", renderActiveCard);
+</script>
+
+</body>
+</html>

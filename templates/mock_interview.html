@@ -1,0 +1,405 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mock Interview | MockMate AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Patrick+Hand&display=swap"
+      rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:url("{{ url_for('static', filename='images/notebook_bg.jpg') }}");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    font-family:'Patrick Hand', cursive;
+}
+
+.container{
+
+    width:90%;
+    max-width:1200px;
+
+    margin:30px auto;
+}
+
+.title{
+
+    text-align:center;
+
+    font-family:'Caveat', cursive;
+
+    color:#7b68ee;
+
+    font-size:4rem;
+
+    margin-bottom:10px;
+}
+
+.subtitle{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    color:#555;
+}
+
+.card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    margin-bottom:30px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.10);
+}
+
+.section-title{
+
+    font-family:'Caveat', cursive;
+
+    color:#7b68ee;
+
+    font-size:2.5rem;
+
+    margin-bottom:20px;
+}
+
+.question-box{
+
+    background:#f4efff;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    font-size:1.5rem;
+
+    margin-bottom:20px;
+}
+
+textarea{
+
+    width:100%;
+
+    min-height:180px;
+
+    border:none;
+
+    outline:none;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:#f4efff;
+
+    resize:vertical;
+
+    font-size:1.1rem;
+}
+
+.upload-box{
+
+    width:100%;
+
+    padding:15px;
+
+    border:2px dashed #cfc2ff;
+
+    border-radius:15px;
+
+    margin-bottom:20px;
+}
+
+.button-group{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-top:20px;
+}
+
+button{
+
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:15px;
+
+    background:#cfc2ff;
+
+    color:#333;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    transition:0.3s;
+}
+
+button:hover{
+
+    background:#b7a6ff;
+}
+
+.back-btn{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    background:#ffd6e8;
+
+    color:#333;
+
+    padding:12px 20px;
+
+    border-radius:15px;
+
+    margin-bottom:20px;
+}
+
+.feedback-box{
+
+    background:#f4efff;
+
+    padding:20px;
+
+    border-radius:20px;
+}
+
+.quote{
+
+    text-align:center;
+
+    font-family:'Caveat', cursive;
+
+    color:#7b68ee;
+
+    font-size:2rem;
+
+    margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/dashboard"
+   class="back-btn">
+
+← Back to Dashboard
+
+</a>
+
+<h1 class="title">
+
+MockMate AI Interview
+
+</h1>
+
+<p class="subtitle">
+
+Practice Like It's Your Real Placement Interview
+
+</p>
+
+<!-- Upload Resume -->
+
+<div class="card">
+
+<h2 class="section-title">
+
+Upload Resume
+
+</h2>
+
+<p>
+
+Upload your resume to generate personalized interview questions.
+
+</p>
+
+<br>
+
+<form action="/upload_resume"
+      method="POST"
+      enctype="multipart/form-data">
+
+<input type="file"
+       name="resume"
+       class="upload-box"
+       accept=".pdf,.doc,.docx,.txt"
+       required>
+
+<button type="submit">
+
+Generate Questions
+
+</button>
+
+</form>
+
+</div>
+
+<!-- Question Section -->
+
+<div class="card">
+
+<h2 class="section-title">
+
+Interview Question
+
+</h2>
+
+<div class="question-box"
+     id="question-box">
+
+{{ question }}
+
+</div>
+
+<form action="/submit_answer"
+      method="POST">
+
+<textarea
+id="answer"
+name="answer"
+placeholder="Write your answer here..."
+required></textarea>
+
+<div class="button-group">
+
+<button type="button"
+        onclick="startVoiceRecording()">
+
+🎤 Speak Answer
+
+</button>
+
+<button type="button"
+        onclick="readQuestion()">
+
+🔊 Read Question
+
+</button>
+
+<button type="submit">
+
+Submit Answer
+
+</button>
+
+</div>
+
+</form>
+
+<br>
+
+<form action="/next_question"
+      method="POST">
+
+<button type="submit">
+
+Next Question
+
+</button>
+
+</form>
+
+</div>
+
+
+<div class="quote">
+
+"Every Interview is Practice Until You Get the Offer."
+
+</div>
+
+</div>
+
+<script>
+
+function startVoiceRecording(){
+
+    if(!('webkitSpeechRecognition' in window)){
+
+        alert("Speech Recognition not supported.");
+
+        return;
+    }
+
+    const recognition =
+    new webkitSpeechRecognition();
+
+    recognition.lang = "en-US";
+
+    recognition.start();
+
+    recognition.onresult = function(event){
+
+        const text =
+        event.results[0][0].transcript;
+
+        document.getElementById(
+        "answer"
+        ).value = text;
+    };
+}
+
+function readQuestion(){
+
+    let question =
+    document.getElementById(
+    "question-box"
+    ).innerText;
+
+    let speech =
+    new SpeechSynthesisUtterance(
+    question
+    );
+
+    speech.lang = "en-US";
+
+    window.speechSynthesis.speak(
+    speech
+    );
+}
+
+</script>
+
+</body>
+</html>
+```

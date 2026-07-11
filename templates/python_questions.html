@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Interview Questions | MockMate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fira+Code:wght@400;500&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #fcf8f2; font-family: 'Patrick Hand', cursive; margin: 0; padding: 20px; }
+        .notebook-container { max-width: 850px; margin: 20px auto; background: rgba(255, 255, 255, 0.95); border-left: 45px solid #f9dad6; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 40px; position: relative; min-height: 600px; }
+        .notebook-container::before { content: ''; position: absolute; top: 0; left: 12px; bottom: 0; width: 2px; background: #f2a6a6; opacity: 0.5; }
+        .back-btn { position: absolute; top: 25px; left: 15px; background: #b8a1ff; color: white; border: none; padding: 8px 14px; border-radius: 8px; cursor: pointer; text-decoration: none; font-size: 1rem; }
+        .page-title { text-align: center; font-family: 'Caveat', cursive; font-size: 3.5rem; color: #2d3748; margin: 0 0 10px 0; }
+        .subtitle { text-align: center; color: #718096; font-size: 1.2rem; margin-bottom: 30px; }
+        
+        .qa-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .qa-question { background: #fcfcfc; padding: 18px 20px; font-size: 1.3rem; color: #4a5568; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .qa-question::after { content: '➕'; font-size: 1rem; color: #b8a1ff; transition: transform 0.2s; }
+        .qa-item.active .qa-question::after { content: '➖'; }
+        .qa-answer { display: none; padding: 20px; background: #fffdf9; border-top: 1px dashed #e2e8f0; font-size: 1.15rem; color: #4a5568; line-height: 1.5; }
+        
+        .example-box { background: #fff7ed; border-left: 4px solid #f97316; padding: 12px; border-radius: 6px; margin: 12px 0; font-size: 1.05rem; color: #9a3412; }
+        .code-block { background: #f7fafc; border-left: 4px solid #b8a1ff; padding: 10px; border-radius: 6px; font-family: 'Fira Code', monospace; font-size: 0.9rem; margin: 10px 0 0 0; white-space: pre-wrap; color: #2d3748; }
+        
+        .qa-item:nth-child(3n+1) { border-left: 5px solid #b8a1ff; }
+        .qa-item:nth-child(3n+2) { border-left: 5px solid #ffb8b8; }
+        .qa-item:nth-child(3n+3) { border-left: 5px solid #bae6fd; }
+    </style>
+</head>
+<body>
+    <div class="notebook-container">
+        <a href="/python_hub" class="back-btn">← Back</a>
+        <h1 class="page-title">❓ Python Interview Q&A</h1>
+        <p class="subtitle">Click on any question to reveal answers and real-world examples.</p>
+
+        <div class="qa-wrapper">
+            <!-- Q1 -->
+            <div class="qa-item">
+                <div class="qa-question">1. What is the difference between Lists and Tuples?</div>
+                <div class="qa-answer">
+                    <strong>Lists</strong> are mutable (can be altered after creation), slower, and use more memory. <strong>Tuples</strong> are immutable (cannot be modified), faster, and memory-efficient.
+                    <pre class="code-block">my_list = [1, 2, 3]   # Mutable\nmy_tuple = (1, 2, 3) # Immutable</pre>
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> A **List** is like a grocery shopping list where you can add or cross off items as you walk through the store. A **Tuple** is like your passport passport number or birth date—once issued, it cannot change.</div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="qa-item">
+                <div class="qa-question">2. What is PEP 8?</div>
+                <div class="qa-answer">
+                    PEP 8 stands for Python Enhancement Proposal 8. It is the official style guide manual for writing clean, readable, and consistent Python source code.
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> Think of PEP 8 like traffic laws. The cars (code) will still run without them, but enforcing common rules prevents chaotic pile-ups and helps everyone navigate seamlessly.</div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="qa-item">
+                <div class="qa-question">3. Explain the difference between Python's arrays and lists.</div>
+                <div class="qa-answer">
+                    Python **Lists** can hold objects of completely different data types (heterogeneous). The standard `array` module requires all entries to belong strictly to the exact same primitive type (homogeneous).
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> A **List** is like a generic storage chest where you toss in clothes, tools, and books together. An **Array** is an egg carton that explicitly only holds items of the exact same size and structure.</div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="qa-item">
+                <div class="qa-question">4. What is Python's GIL (Global Interpreter Lock)?</div>
+                <div class="qa-answer">
+                    The GIL is a mutex barrier lock ensuring that only a single native thread executes Python bytecodes at any given moment, preventing race conditions but limiting multi-core CPU thread scalability.
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> A busy library with 4 computer terminals but only **one single mouse**. Even if 4 users sit down at once, only one person can click or input a command at a time.</div>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="qa-item">
+                <div class="qa-question">5. How is memory managed in Python?</div>
+                <div class="qa-answer">
+                    Python handles memory allocation dynamically through a private heap space managed by an internal controller, cleanups are triggered automatically using **Reference Counting** and a generational **Garbage Collector**.
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> A restaurant table cleanup service. As soon as a table's guest count drops to zero, a busser clears the table instantly so new guests can sit down.</div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="qa-item">
+                <div class="qa-question">6. What are Python Decorators?</div>
+                <div class="qa-answer">
+                    Decorators are wrapper functions that dynamically extend or alter the behavior of a target function without directly altering its original source code block.
+                    <pre class="code-block">@my_decorator\ndef custom_func():\n    pass</pre>
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> Wearing a raincoat. You are still the same person with the same basic behaviors, but you've added an outer layer that gives you the extra ability to resist water.</div>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="qa-item">
+                <div class="qa-question">7. What is the difference between 'is' and '==' operators?</div>
+                <div class="qa-answer">
+                    The `==` operator evaluates whether the **values** of two objects are equal. The `is` operator evaluates whether both variables point to the exact same object location in memory (**identity** check).
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> Two identical copies of the same book. `==` checks if they contain the same text (True). `is` checks if they are literally the exact same physical copy in your hand (False).</div>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="qa-item">
+                <div class="qa-question">8. What are Generators and how do they save memory?</div>
+                <div class="qa-answer">
+                    Generators are functions that return an iterable sequence lazily using the `yield` keyword instead of `return`. They compute elements one at a time on demand rather than storing the entire list in memory.
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> An on-demand streaming service like Netflix. It streams the specific minute of video you are watching right now, rather than downloading the entire multi-season series onto your hard drive before playing.</div>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="qa-item">
+                <div class="qa-question">9. Explain List Comprehension.</div>
+                <div class="qa-answer">
+                    A concise syntactic shorthand notation for deriving new lists out of existing iterable structures using single-line declarations.
+                    <pre class="code-block">squares = [x**2 for x in range(10)]</pre>
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> Instead of saying: "Go to the closet, open it, look at every shirt, pick the red ones, and place them on the bed," you simply say: "Bring me all the red shirts from the closet."</div>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="qa-item">
+                <div class="qa-question">10. What is the purpose of `*args` and `**kwargs`?</div>
+                <div class="qa-answer">
+                    - `*args` passes a dynamic, variable-length positional argument list to a function.<br>
+                    - `**kwargs` passes a dynamic, variable-length dictionary of keyword arguments.
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> `*args` is like bringing a generic box filled with an unknown number of tools to a job. `**kwargs` is like bringing that box, but every single item inside is clearly labeled with its specific purpose.</div>
+                </div>
+            </div>
+
+            <!-- Q11 -->
+            <div class="qa-item">
+                <div class="qa-question">11. What is the difference between Shallow Copy and Deep Copy?</div>
+                <div class="qa-answer">
+                    - **Shallow Copy** creates a new outer collection object but copies references to its nested items.<br>
+                    - **Deep Copy** duplicates everything recursively, creating a completely independent copy of both the collection and its nested content.
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> A **Shallow Copy** of a house blueprint clones the walls, but both blueprints still share the exact same physical key to the front door. A **Deep Copy** creates an entirely separate house with its own brand new keys.</div>
+                </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="qa-item">
+                <div class="qa-question">12. Explain the use of the `with` statement and context managers.</div>
+                <div class="qa-answer">
+                    The `with` statement simplifies resource handling by ensuring that cleanups, like closing files or releasing database locks, are executed automatically even if errors occur.
+                    <pre class="code-block">with open('file.txt', 'r') as f:\n    data = f.read()</pre>
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> Like renting a hotel room that automatically locks the safe and turns off all lights the moment you check out, ensuring no resources are left open or exposed.</div>
+                </div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="qa-item">
+                <div class="qa-question">13. What are lambda functions in Python?</div>
+                <div class="qa-answer">
+                    Lambda functions are small, single-line anonymous functions defined without a name using the `lambda` keyword.
+                    <pre class="code-block">multiply = lambda x, y : x * y</pre>
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> A disposable paper cup. You throw it together quickly for a single, immediate drink and discard it right after use, rather than washing a permanent ceramic mug.</div>
+                </div>
+            </div>
+
+            <!-- Q14 -->
+            <div class="qa-item">
+                <div class="qa-question">14. How do `break`, `continue`, and `pass` statements differ?</div>
+                <div class="qa-answer">
+                    - `break`: Terminates the current loop completely.<br>
+                    - `continue`: Skips the rest of the current iteration and jumps to the next cycle.<br>
+                    - `pass`: A null statement used as a placeholder where code is syntactically required but no action is needed.
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> Reading a book line-by-line: **break** means closing the book and walking away. **continue** means skipping a boring sentence to read the next line. **pass** means reading a blank placeholder page and moving on without pausing.</div>
+                </div>
+            </div>
+
+            <!-- Q15 -->
+            <div class="qa-item">
+                <div class="qa-question">15. What are namespaces and scopes?</div>
+                <div class="qa-answer">
+                    A **Namespace** is a mapping system that ensures every variable name is unique. **Scope** defines the area of code where a specific namespace can be directly accessed (Local, Enclosing, Global, Built-in).
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> The name "John". Inside your family scope, calling "John" clearly refers to your brother. In a global city scope, you need to use his full address to identify him uniquely.</div>
+                </div>
+            </div>
+
+            <!-- Q16 -->
+            <div class="qa-item">
+                <div class="qa-question">16. What is the difference between `__init__` and `__new__`?</div>
+                <div class="qa-answer">
+                    - `__new__` is the actual creator method that builds and returns a brand-new blank instance of a class.<br>
+                    - `__init__` is the initializer method that receives that instance to set up its initial attributes and values.
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> `__new__` is the construction crew framing the physical walls of a brand new house. `__init__` is the interior designer moving in to paint the rooms and place the furniture.</div>
+                </div>
+            </div>
+
+            <!-- Q17 -->
+            <div class="qa-item">
+                <div class="qa-question">17. Explain method resolution order (MRO) in Python.</div>
+                <div class="qa-answer">
+                    MRO defines the exact sequence Python uses to search for a method or attribute across complex multiple inheritance class hierarchies. It is calculated using the C3 Linearization algorithm.
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> A chain of command. If an intern doesn't know how to handle a task, they look up to their team leader. If the leader doesn't know, it goes to the manager, then the director.</div>
+                </div>
+            </div>
+
+            <!-- Q18 -->
+            <div class="qa-item">
+                <div class="qa-question">18. What are Dunder (Magic) methods?</div>
+                <div class="qa-answer">
+                    Dunder (Double Under score) methods are built-in hooks like `__str__` or `__add__` that allow you to define how your custom objects behave with built-in operations (like printing or math).
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> Teaching a custom robotic vehicle object what to do when someone presses the standard universal "+" button on a controller.</div>
+                </div>
+            </div>
+
+            <!-- Q19 -->
+            <div class="qa-item">
+                <div class="qa-question">19. How do you implement abstraction in Python?</div>
+                <div class="qa-answer">
+                    Import the `abc` module and use the `@abstractmethod` decorator to create abstract base classes that enforce specific structure across child subclasses.
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> A blueprint for a steering wheel. It dictates that every car *must* have a functional turn method, but leaves it up to each manufacturer to decide whether it uses hydraulic or electronic steering.</div>
+                </div>
+            </div>
+
+            <!-- Q20 -->
+            <div class="qa-item">
+                <div class="qa-question">20. What is the purpose of `self` in Python classes?</div>
+                <div class="qa-answer">
+                    `self` represents the specific instance of the class currently invoking a method, allowing individual objects to access and modify their own unique data fields.
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> A name tag that says "My name is...". When Person A reads it, it refers to Person A. When Person B reads it, it refers to Person B.</div>
+                </div>
+            </div>
+
+            <!-- Q21 -->
+            <div class="qa-item">
+                <div class="qa-question">21. What are closures in Python?</div>
+                <div class="qa-answer">
+                    A closure is an inner function that remembers and retains access to variables from its outer enclosing scope, even after the outer function has finished executing.
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> A spy carrying a secret message from headquarters. Even after leaving the base (outer function exits), the spy still holds onto that message wherever they go.</div>
+                </div>
+            </div>
+
+            <!-- Q22 -->
+            <div class="qa-item">
+                <div class="qa-question">22. Explain Python's built-in `map`, `filter`, and `reduce` operations.</div>
+                <div class="qa-answer">
+                    - `map`: Applies a function to every item in an iterable.<br>
+                    - `filter`: Extracts items that pass a specific condition check.<br>
+                    - `reduce`: Combines all items into a single summary value sequentially.
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> Making juice: **map** slices all fruits in half, **filter** throws away any rotten pieces, and **reduce** presses them all together into a single glass of juice.</div>
+                </div>
+            </div>
+
+            <!-- Q23 -->
+            <div class="qa-item">
+                <div class="qa-question">23. What is type hinting and why is it useful?</div>
+                <div class="qa-answer">
+                    Type hinting allows you to explicitly declare expected data types for variables, arguments, and return values, improving code readability and enabling linters to catch bugs early.
+                    <pre class="code-block">def greet(name: str) -> str:\n    return f"Hello, {name}"</pre>
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> Labeling kitchen canisters with "Sugar" or "Salt". The jars work exactly the same way without labels, but it prevents you from making a terrible mistake with your morning coffee.</div>
+                </div>
+            </div>
+
+            <!-- Q24 -->
+            <div class="qa-item">
+                <div class="qa-question">24. What is the difference between static methods and class methods?</div>
+                <div class="qa-answer">
+                    - `@classmethod` receives the class (`cls`) as an implicit first argument, allowing it to inspect or modify class-wide properties.<br>
+                    - `@staticmethod` behaves like a regular isolated function inside the class namespace, receiving no implicit class or instance references.
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> A car factory. A **class method** modifies the default paint color for all cars coming off the assembly line. A **static method** simply calculates a unit conversion like miles-to-kilometers.</div>
+                </div>
+            </div>
+
+            <!-- Q25 -->
+            <div class="qa-item">
+                <div class="qa-question">25. What happens when an exception is raised but not caught?</div>
+                <div class="qa-answer">
+                    Python pauses regular execution, prints a detailed trace history (traceback) detailing the error path to help with debugging, and terminates the script entirely.
+                    <div class="example-box"><strong>🐍 Real-World Example:</strong> A fire alarm going off in a factory. If there is no automated safety system to handle it (try-except), the entire factory shuts down immediately to prevent further issues.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.qa-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                const answer = parent.querySelector('.qa-answer');
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

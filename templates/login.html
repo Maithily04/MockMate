@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MockMate AI - Login</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Patrick+Hand&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+
+            min-height:100vh;
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            background:url("{{ url_for('static', filename='images/notebook_bg.jpg') }}");
+
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+
+            font-family:'Patrick Hand',cursive;
+        }
+
+        .login-card{
+
+            width:420px;
+
+            background:rgba(255,255,255,0.95);
+
+            padding:40px;
+
+            border-radius:30px;
+
+            box-shadow:
+            0 10px 25px rgba(0,0,0,0.15);
+
+            text-align:center;
+        }
+
+        .logo{
+
+            font-family:'Caveat',cursive;
+
+            font-size:4rem;
+
+            color:#7b68ee;
+
+            margin-bottom:10px;
+        }
+
+        .subtitle{
+
+            color:#666;
+
+            font-size:1.2rem;
+
+            margin-bottom:30px;
+        }
+
+        .input-box{
+
+            width:100%;
+
+            padding:15px;
+
+            margin-bottom:15px;
+
+            border:none;
+
+            border-radius:15px;
+
+            background:#f4efff;
+
+            font-size:1rem;
+
+            outline:none;
+        }
+
+        .input-box:focus{
+
+            box-shadow:
+            0 0 8px rgba(123,104,238,0.4);
+        }
+
+        .login-btn{
+
+            width:100%;
+
+            padding:15px;
+
+            border:none;
+
+            border-radius:15px;
+
+            background:#cfc2ff;
+
+            color:#333;
+
+            font-size:1.1rem;
+
+            cursor:pointer;
+
+            transition:0.3s;
+        }
+
+        .login-btn:hover{
+
+            background:#b7a6ff;
+
+            transform:translateY(-2px);
+        }
+
+        .links{
+
+            margin-top:20px;
+
+            font-size:1rem;
+        }
+
+        .links a{
+
+            text-decoration:none;
+
+            color:#7b68ee;
+        }
+
+        .quote{
+
+            margin-top:25px;
+
+            font-family:'Caveat',cursive;
+
+            font-size:1.8rem;
+
+            color:#8e7dff;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-card">
+
+        <div class="logo">
+            MockMate AI
+        </div>
+
+        <div class="subtitle">
+            Your Personal Placement Preparation Notebook
+        </div>
+
+        <form action="/dashboard" method="GET">
+
+            <input
+                type="text"
+                name="username"
+                class="input-box"
+                placeholder="Enter Username"
+                required>
+
+            <input
+                type="password"
+                name="password"
+                class="input-box"
+                placeholder="Enter Password"
+                required>
+
+            <button
+                type="submit"
+                class="login-btn">
+
+                Login
+
+            </button>
+
+        </form>
+
+        <div class="links">
+
+            <p>
+                <a href="#">Forgot Password?</a>
+            </p>
+
+            <p style="margin-top:10px;">
+                <a href="#">Create Account</a>
+            </p>
+
+        </div>
+
+        <div class="quote">
+            "Practice Today, Get Placed Tomorrow."
+        </div>
+
+    </div>
+
+</body>
+
+</html>

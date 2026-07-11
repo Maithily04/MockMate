@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CSS Study Hub | MockMate</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        .hub-container{
+
+            width:90%;
+
+            margin:auto;
+
+            min-height:100vh;
+
+            padding:40px 0;
+        }
+
+        .hub-heading{
+
+            text-align:center;
+
+            font-family:'Caveat',cursive;
+
+            font-size:4rem;
+
+            color:#6c5ce7;
+
+            margin-bottom:15px;
+        }
+
+        .hub-subtitle{
+
+            text-align:center;
+
+            font-family:'Patrick Hand',cursive;
+
+            font-size:1.4rem;
+
+            color:#555;
+
+            margin-bottom:50px;
+        }
+
+        .card-grid{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,
+            minmax(300px,1fr));
+
+            gap:30px;
+        }
+
+        .hub-card{
+
+            background:
+            rgba(255,255,255,0.92);
+
+            border-radius:25px;
+
+            padding:35px;
+
+            text-align:center;
+
+            text-decoration:none;
+
+            box-shadow:
+            0 5px 15px
+            rgba(0,0,0,0.1);
+
+            transition:0.3s;
+        }
+
+        .hub-card:hover{
+
+            transform:
+            translateY(-8px)
+            scale(1.03);
+        }
+
+        .hub-card h2{
+
+            font-family:'Caveat',cursive;
+
+            color:#6c5ce7;
+
+            font-size:2.5rem;
+        }
+
+        .hub-card p{
+
+            font-family:'Patrick Hand',cursive;
+
+            color:#555;
+
+            font-size:1.2rem;
+
+            line-height:1.7;
+        }
+
+        .quote-box{
+
+            margin-top:60px;
+
+            text-align:center;
+
+            font-family:'Caveat',cursive;
+
+            font-size:2rem;
+
+            color:#8e7dff;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="hub-container">
+
+    <h1 class="hub-heading">
+        CSS Study Hub
+    </h1>
+
+    <p class="hub-subtitle">
+        Learn • Revise • Practice • Crack Interviews
+    </p>
+
+    <div class="card-grid">
+
+        <a href="/css_cheatsheet"
+           class="hub-card">
+
+            <h2>Cheatsheet</h2>
+
+            <p>
+                Quick revision notes covering
+                selectors, box model,
+                flexbox, grid, positioning,
+                media queries and more.
+            </p>
+
+        </a>
+
+        <a href="/css_flashcards"
+           class="hub-card">
+
+            <h2>Flashcards</h2>
+
+            <p>
+                Revise important CSS concepts
+                through short notebook-style
+                flashcards for fast learning.
+            </p>
+
+        </a>
+
+        <a href="/css_questions"
+           class="hub-card">
+
+            <h2>Interview Questions</h2>
+
+            <p>
+                Practice the most asked
+                CSS placement interview
+                questions with answers
+                and examples.
+            </p>
+
+        </a>
+
+    </div>
+
+    <div class="quote-box">
+
+        "Good design is invisible.
+        Great CSS makes it happen."
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static',
+filename='js/script.js') }}">
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+[
+{
+"question1": "What is a Data Structure?",
+"answer": "A Data Structure is a way of organizing and storing data efficiently so that operations can be performed effectively.",
+"example": "Array, Linked List, Stack, Queue"
+},
+{
+"question2": "What is an Algorithm?",
+"answer": "An Algorithm is a step-by-step procedure used to solve a problem or perform a computation.",
+"example": "Binary Search Algorithm"
+},
+{
+"question3": "What is Time Complexity?",
+"answer": "Time Complexity measures how the execution time of an algorithm grows with input size.",
+"example": "Binary Search → O(log n)"
+},
+{
+"question4": "What is Space Complexity?",
+"answer": "Space Complexity measures the amount of memory used by an algorithm.",
+"example": "Merge Sort → O(n)"
+},
+{
+"question5": "What is Big O Notation?",
+"answer": "Big O Notation describes the worst-case performance of an algorithm.",
+"example": "Linear Search → O(n)"
+},
+{
+"question6": "What is an Array?",
+"answer": "An Array is a collection of elements stored in contiguous memory locations.",
+"example": "arr = [10,20,30]"
+},
+{
+"question7": "What is the Time Complexity of accessing an element in an Array?",
+"answer": "Array element access takes constant time.",
+"example": "O(1)"
+},
+{
+"question8": "What is a Linked List?",
+"answer": "A Linked List is a linear data structure where elements are connected using pointers.",
+"example": "10 → 20 → 30"
+},
+{
+"question9": "Difference between Array and Linked List?",
+"answer": "Arrays allow faster access, while Linked Lists allow easier insertion and deletion.",
+"example": "Array Access O(1), Linked List Access O(n)"
+},
+{
+"question10": "What is a Stack?",
+"answer": "A Stack follows the LIFO (Last In First Out) principle.",
+"example": "Push(), Pop()"
+},
+{
+"question11": "What are Stack Operations?",
+"answer": "Push, Pop, Peek, and IsEmpty.",
+"example": "stack.push(10)"
+},
+{
+"question12": "What is a Queue?",
+"answer": "A Queue follows the FIFO (First In First Out) principle.",
+"example": "Enqueue(), Dequeue()"
+},
+{
+"question13": "Difference between Stack and Queue?",
+"answer": "Stack uses LIFO while Queue uses FIFO.",
+"example": "Stack: Undo Operation, Queue: Printer Queue"
+},
+{
+"question14": "What is a Tree?",
+"answer": "A Tree is a hierarchical data structure consisting of nodes connected by edges.",
+"example": "Root → Child Nodes"
+},
+{
+"question15": "What is a Binary Tree?",
+"answer": "A Binary Tree is a tree where each node has at most two children.",
+"example": "Left Child and Right Child"
+},
+{
+"question16": "What is a Binary Search Tree (BST)?",
+"answer": "A BST is a Binary Tree where left child < root < right child.",
+"example": "Search Operation O(log n)"
+},
+{
+"question17": "What is Tree Traversal?",
+"answer": "Traversal means visiting every node of a tree exactly once.",
+"example": "Inorder, Preorder, Postorder"
+},
+{
+"question18": "What is a Graph?",
+"answer": "A Graph consists of vertices (nodes) connected by edges.",
+"example": "A → B → C"
+},
+{
+"question19": "What is BFS?",
+"answer": "Breadth First Search traverses nodes level by level using a Queue.",
+"example": "Queue Based Traversal"
+},
+{
+"question20": "What is DFS?",
+"answer": "Depth First Search explores nodes deeply before backtracking.",
+"example": "Stack or Recursion Based Traversal"
+},
+{
+"question21": "What is Binary Search?",
+"answer": "Binary Search finds an element in a sorted array by repeatedly dividing the search space.",
+"example": "O(log n)"
+},
+{
+"question22": "What is Linear Search?",
+"answer": "Linear Search checks each element one by one until the target is found.",
+"example": "O(n)"
+},
+{
+"question23": "What is Recursion?",
+"answer": "Recursion occurs when a function calls itself until a base condition is reached.",
+"example": "Factorial Calculation"
+},
+{
+"question24": "What is Dynamic Programming?",
+"answer": "Dynamic Programming solves problems by storing solutions of subproblems to avoid recomputation.",
+"example": "Fibonacci Series, Knapsack Problem"
+},
+{
+"question25": "What is a Greedy Algorithm?",
+"answer": "A Greedy Algorithm chooses the locally optimal solution at each step.",
+"example": "Fractional Knapsack, Activity Selection"
+}
+]

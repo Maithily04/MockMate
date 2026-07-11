@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "question": "What is Python?",
+    "answer": "Python is a high-level, interpreted, object-oriented programming language known for its simplicity and readability.",
+    "example": "print('Hello World')"
+  },
+  {
+    "id": 2,
+    "question": "Key Features of Python?",
+    "answer": "Dynamically typed, interpreted, extensive standard libraries, cross-platform compatibility, and supports multiple paradigms.",
+    "example": "# No variable declaration needed\nx = 10"
+  },
+  {
+    "id": 3,
+    "question": "Difference between List and Tuple?",
+    "answer": "Lists are mutable (can change), defined with []. Tuples are immutable (cannot change), defined with ().",
+    "example": "my_list = [1, 2, 3]\nmy_tuple = (1, 2, 3)"
+  },
+  {
+    "id": 4,
+    "question": "List vs Tuple vs Set vs Dictionary?",
+    "answer": "List: Ordered & mutable. Tuple: Ordered & immutable. Set: Unordered & unique items. Dict: Key-Value pairs.",
+    "example": "my_set = {1, 2, 2} # {1, 2}\nmy_dict = {'a': 1}"
+  },
+  {
+    "id": 5,
+    "question": "What is a Python Dictionary?",
+    "answer": "An unordered collection of data values stored as key-value pairs, optimized for retrieving values when the key is known.",
+    "example": "user = {'name': 'Alice', 'age': 25}"
+  },
+  {
+    "id": 6,
+    "question": "Difference between == and is?",
+    "answer": "== checks if the values of two objects are equal. 'is' checks if both variables point to the exact same memory location.",
+    "example": "a = [1, 2]\nb = [1, 2]\nprint(a == b) # True\nprint(a is b) # False"
+  },
+  {
+    "id": 7,
+    "question": "What is a Function?",
+    "answer": "A block of organized, reusable code that is used to perform a single, related action, defined with the 'def' keyword.",
+    "example": "def greet(name):\n    return f'Hi {name}'"
+  },
+  {
+    "id": 8,
+    "question": "What are *args?",
+    "answer": "Used in function definitions to pass a variable number of non-keyworded arguments as a tuple.",
+    "example": "def add_all(*args):\n    return sum(args)\n\nprint(add_all(1, 2, 3)) # 6"
+  },
+  {
+    "id": 9,
+    "question": "What are **kwargs?",
+    "answer": "Used in function definitions to pass a variable number of keyworded arguments as a dictionary object.",
+    "example": "def show_info(**kwargs):\n    print(kwargs)\n\nshow_info(a=1, b=2) # {'a': 1, 'b': 2}"
+  },
+  {
+    "id": 10,
+    "question": "What is a List Comprehension?",
+    "answer": "A concise, elegant way to create new lists from existing iterables based on an inline loop evaluation.",
+    "example": "squares = [x**2 for x in range(5)]\n# [0, 1, 4, 9, 16]"
+  }
+]

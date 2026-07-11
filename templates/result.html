@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Interview Result | MockMate AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Patrick+Hand&display=swap"
+      rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:url("{{ url_for('static', filename='images/notebook_bg.jpg') }}");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    font-family:'Patrick Hand',cursive;
+}
+
+.container{
+
+    width:90%;
+
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:40px 0;
+}
+
+.heading{
+
+    text-align:center;
+
+    font-family:'Caveat',cursive;
+
+    font-size:4rem;
+
+    color:#7b68ee;
+
+    margin-bottom:15px;
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:#666;
+
+    font-size:1.3rem;
+
+    margin-bottom:40px;
+}
+
+.result-card{
+
+    background:rgba(255,255,255,0.95);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.10);
+}
+
+.section-title{
+
+    font-family:'Caveat',cursive;
+
+    font-size:2.2rem;
+
+    color:#7b68ee;
+
+    margin-bottom:15px;
+}
+
+.score-circle{
+
+    width:180px;
+
+    height:180px;
+
+    margin:20px auto;
+
+    border-radius:50%;
+
+    background:#cfc2ff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:3rem;
+
+    color:#333;
+
+    font-weight:bold;
+}
+
+.feedback-box{
+
+    background:#faf7ff;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    margin-top:15px;
+}
+
+.feedback-box p{
+
+    line-height:1.8;
+}
+
+.skill-list{
+
+    list-style:none;
+}
+
+.skill-list li{
+
+    padding:10px;
+
+    margin-bottom:10px;
+
+    background:#faf7ff;
+
+    border-radius:12px;
+}
+
+.btn-container{
+
+    text-align:center;
+
+    margin-top:30px;
+}
+
+.btn{
+
+    padding:15px 30px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#cfc2ff;
+
+    cursor:pointer;
+
+    font-size:1.1rem;
+
+    margin:10px;
+
+    transition:0.3s;
+}
+
+.btn:hover{
+
+    background:#b7a6ff;
+}
+
+.quote{
+
+    text-align:center;
+
+    margin-top:30px;
+
+    font-family:'Caveat',cursive;
+
+    font-size:2rem;
+
+    color:#8e7dff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1 class="heading">
+        MockMate AI Result
+    </h1>
+
+    <p class="subtitle">
+        Your Interview Performance Report
+    </p>
+
+    <div class="result-card">
+
+        <h2 class="section-title">
+            Overall Score
+        </h2>
+
+        <div class="score-circle">
+
+            {{ score if score else "85%" }}
+
+        </div>
+
+    </div>
+
+    <div class="result-card">
+
+        <h2 class="section-title">
+            Strengths
+        </h2>
+
+        <div class="feedback-box">
+
+            <p>
+
+                ✔ Good communication skills
+
+                <br>
+
+                ✔ Well-structured answers
+
+                <br>
+
+                ✔ Strong project explanation
+
+                <br>
+
+                ✔ Good confidence level
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="result-card">
+
+        <h2 class="section-title">
+            Areas for Improvement
+        </h2>
+
+        <div class="feedback-box">
+
+            <p>
+
+                • Add more technical depth
+
+                <br>
+
+                • Use more real-world examples
+
+                <br>
+
+                • Improve DSA explanation
+
+                <br>
+
+                • Quantify achievements
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="result-card">
+
+        <h2 class="section-title">
+            Skill Assessment
+        </h2>
+
+        <ul class="skill-list">
+
+            <li>
+                Python : ⭐⭐⭐⭐⭐
+            </li>
+
+            <li>
+                HTML/CSS : ⭐⭐⭐⭐☆
+            </li>
+
+            <li>
+                JavaScript : ⭐⭐⭐⭐☆
+            </li>
+
+            <li>
+                DSA : ⭐⭐⭐☆☆
+            </li>
+
+            <li>
+                Communication : ⭐⭐⭐⭐⭐
+            </li>
+
+        </ul>
+
+    </div>
+
+    <div class="result-card">
+
+        <h2 class="section-title">
+            Final Recommendation
+        </h2>
+
+        <div class="feedback-box">
+
+            <p>
+
+                You are placement-ready for
+                entry-level Software Developer
+                roles. Continue practicing DSA,
+                JavaScript, and technical
+                interview questions to improve
+                your performance further.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="btn-container">
+
+        <a href="/dashboard">
+
+            <button class="btn">
+
+                Back to Dashboard
+
+            </button>
+
+        </a>
+
+        <a href="/mock_interview">
+
+            <button class="btn">
+
+                Take Another Interview
+
+            </button>
+
+        </a>
+
+    </div>
+
+    <div class="quote">
+
+        "Every Interview Makes You Better Than Yesterday."
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

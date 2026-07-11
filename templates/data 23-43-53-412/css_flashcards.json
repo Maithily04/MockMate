@@ -1,0 +1,102 @@
+[
+{
+"question": "What is CSS?",
+"answer": "CSS (Cascading Style Sheets) is used to style and format HTML elements."
+},
+{
+"question": "What are the three types of CSS?",
+"answer": "Inline CSS, Internal CSS, and External CSS."
+},
+{
+"question": "Difference between ID and Class?",
+"answer": "ID is unique for one element. Class can be used for multiple elements."
+},
+{
+"question": "What is the CSS Box Model?",
+"answer": "The Box Model consists of Content, Padding, Border, and Margin."
+},
+{
+"question": "Difference between Margin and Padding?",
+"answer": "Margin creates space outside the border, Padding creates space inside the border."
+},
+{
+"question": "What is Flexbox?",
+"answer": "Flexbox is a one-dimensional layout model used for alignment and spacing."
+},
+{
+"question": "What is CSS Grid?",
+"answer": "CSS Grid is a two-dimensional layout system using rows and columns."
+},
+{
+"question": "Difference between Flexbox and Grid?",
+"answer": "Flexbox handles one dimension, Grid handles two dimensions."
+},
+{
+"question": "What are CSS Selectors?",
+"answer": "Selectors target HTML elements for styling."
+},
+{
+"question": "What is CSS Specificity?",
+"answer": "Specificity determines which CSS rule is applied when multiple rules target the same element."
+},
+{
+"question": "What is z-index?",
+"answer": "z-index controls the stacking order of overlapping elements."
+},
+{
+"question": "Difference between px, em, rem and %?",
+"answer": "px is fixed, em depends on parent, rem depends on root element, % depends on parent size."
+},
+{
+"question": "What are Pseudo Classes?",
+"answer": "Pseudo classes define special states of elements like :hover and :focus."
+},
+{
+"question": "What are Pseudo Elements?",
+"answer": "Pseudo elements style specific parts of elements such as ::before and ::first-letter."
+},
+{
+"question": "Difference between inline, block and inline-block?",
+"answer": "Inline takes required width, block takes full width, inline-block combines both behaviors."
+},
+{
+"question": "What is Responsive Web Design?",
+"answer": "Responsive design ensures websites work properly on all screen sizes."
+},
+{
+"question": "What are Media Queries?",
+"answer": "Media queries apply styles based on screen size or device characteristics."
+},
+{
+"question": "Difference between absolute and relative units?",
+"answer": "px is absolute. %, em, rem, vw and vh are relative units."
+},
+{
+"question": "What is Overflow in CSS?",
+"answer": "Overflow controls how content behaves when it exceeds an element's dimensions."
+},
+{
+"question": "What is the Transform Property?",
+"answer": "Transform modifies an element's position, size or rotation."
+},
+{
+"question": "What is CSS Transition?",
+"answer": "Transition creates smooth changes between property values."
+},
+{
+"question": "What is CSS Animation?",
+"answer": "Animations create movement and visual effects without JavaScript."
+},
+{
+"question": "Difference between display:none and visibility:hidden?",
+"answer": "display:none removes the element completely. visibility:hidden hides it but keeps its space."
+},
+{
+"question": "Difference between visibility:hidden and opacity:0?",
+"answer": "visibility:hidden prevents interaction. opacity:0 makes the element invisible but it still exists."
+},
+{
+"question": "What is Position Sticky?",
+"answer": "Sticky positioning behaves like relative until a scroll threshold is reached, then behaves like fixed."
+}
+]

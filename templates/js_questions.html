@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Interview Questions | MockMate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght=700&family=Fira+Code:wght=400;500&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #fcf8f2; font-family: 'Patrick Hand', cursive; margin: 0; padding: 20px; }
+        .notebook-container { max-width: 850px; margin: 20px auto; background: rgba(255, 255, 255, 0.95); border-left: 45px solid #f9dad6; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 40px; position: relative; min-height: 600px; }
+        .notebook-container::before { content: ''; position: absolute; top: 0; left: 12px; bottom: 0; width: 2px; background: #f2a6a6; opacity: 0.5; }
+        .back-btn { position: absolute; top: 25px; left: 15px; background: #b8a1ff; color: white; border: none; padding: 8px 14px; border-radius: 8px; cursor: pointer; text-decoration: none; font-size: 1rem; }
+        .page-title { text-align: center; font-family: 'Caveat', cursive; font-size: 3.5rem; color: #2d3748; margin: 0 0 10px 0; }
+        .subtitle { text-align: center; color: #718096; font-size: 1.2rem; margin-bottom: 30px; }
+        
+        .qa-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .qa-question { background: #fcfcfc; padding: 18px 20px; font-size: 1.3rem; color: #4a5568; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .qa-question::after { content: '➕'; font-size: 1rem; color: #b8a1ff; transition: transform 0.2s; }
+        .qa-item.active .qa-question::after { content: '➖'; }
+        .qa-answer { display: none; padding: 20px; background: #fffdf9; border-top: 1px dashed #e2e8f0; font-size: 1.15rem; color: #4a5568; line-height: 1.5; }
+        
+        .example-box { background: #f0fdfa; border-left: 4px solid #0d9488; padding: 12px; border-radius: 6px; margin: 12px 0; font-size: 1.05rem; color: #115e59; }
+        .code-block { background: #f7fafc; border-left: 4px solid #b8a1ff; padding: 10px; border-radius: 6px; font-family: 'Fira Code', monospace; font-size: 0.9rem; margin: 10px 0 0 0; white-space: pre-wrap; color: #2d3748; }
+        
+        .qa-item:nth-child(3n+1) { border-left: 5px solid #b8a1ff; }
+        .qa-item:nth-child(3n+2) { border-left: 5px solid #ffb8b8; }
+        .qa-item:nth-child(3n+3) { border-left: 5px solid #bae6fd; }
+    </style>
+</head>
+<body>
+    <div class="notebook-container">
+        <a href="/javascript_hub" class="back-btn">← Back</a>
+        <h1 class="page-title">❓ JavaScript Interview Q&A</h1>
+        <p class="subtitle">Click on any question to reveal answers and real-world examples.</p>
+
+        <div class="qa-wrapper">
+            <!-- Q1 -->
+            <div class="qa-item">
+                <div class="qa-question">1. What is the difference between `var`, `let`, and `const`?</div>
+                <div class="qa-answer">
+                    - `var`: Function-scoped, can be redeclared, and is hoisted up with an initial value of undefined.<br>
+                    - `let`: Block-scoped, cannot be redeclared inside the same block, and is not initialized until its definition is evaluated.<br>
+                    - `const`: Block-scoped like let, but its value reference cannot be reassigned after declaration.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> `var` is like a public noticeboard anywhere in the building. `let` is like writing a temporary note on a specific conference room whiteboard. `const` is carving a company name into stone at the lobby entrance.</div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="qa-item">
+                <div class="qa-question">2. Explain closures in JavaScript.</div>
+                <div class="qa-answer">
+                    A closure is created when an inner function retains access to variables from its parent lexical scope, even after that parent function has finished executing.
+                    <pre class="code-block">function outer() {\n  let count = 0;\n  return function inner() { return ++count; }\n}</pre>
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> A vending machine. The setup function finishes its job long ago, but the tracking button internally remembers how many snacks are left inside every time you click it.</div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="qa-item">
+                <div class="qa-question">3. What is Prototypal Inheritance?</div>
+                <div class="qa-answer">
+                    Every JavaScript object possesses an internal private link pointing to a prototype object. Objects inherit properties and methods directly from this prototype link rather than copying them.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> Renting a house with appliances. You don't own or buy the refrigerator yourself, but you have full access to use it because it belongs to the foundation model property you are linked to.</div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="qa-item">
+                <div class="qa-question">4. What is the Event Loop?</div>
+                <div class="qa-answer">
+                    The Event Loop is a runtime mechanism that allows single-threaded JavaScript to perform non-blocking asynchronous operations. It continuously monitors the Call Stack and moves tasks from the Callback Queue onto the stack once it is empty.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> A restaurant chef (Call Stack) cooking orders. An assistant handles taking reservations (Web APIs). When a reservation comes in, it waits in line (Callback Queue) until the chef finishes cooking the current dish and is ready to look up.</div>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="qa-item">
+                <div class="qa-question">5. What is the difference between `==` and `===`?</div>
+                <div class="qa-answer">
+                    `==` (loose equality) compares values after performing type coercion. `===` (strict equality) compares both the value and the exact data type without conversion.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> Loose equality (`==`) sees a string item ticket `"5"` and a numeric weight value `5` and says they match. Strict equality (`===`) rejects it because a piece of text is not the same as a number.</div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="qa-item">
+                <div class="qa-question">6. What is Hoisting?</div>
+                <div class="qa-answer">
+                    JavaScript's default behavior of moving variable and function declarations to the top of their current scope during the compilation phase before code execution begins.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> An event coordinator preparing a stage line-up. Before the show starts, they gather all the microphones and setup stands at the front, even if the performers haven't walked out to use them yet.</div>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="qa-item">
+                <div class="qa-question">7. How do Promises work and what are their states?</div>
+                <div class="qa-answer">
+                    A Promise handles asynchronous operations, acting as a placeholder for a future result. It can be in one of three states: **Pending** (working), **Fulfilled** (success), or **Rejected** (error).
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> Ordering food at a fast-food counter. They hand you a digital buzzer device (Promise). It sits flashing (**Pending**) until your meal is ready (**Fulfilled**) or they run out of food and sound an alarm (**Rejected**).</div>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="qa-item">
+                <div class="qa-question">8. Explain `async/await` syntax.</div>
+                <div class="qa-answer">
+                    Built on top of Promises, it provides a cleaner, synchronous-looking syntax to handle asynchronous streams, eliminating complex chain patterns.
+                    <pre class="code-block">async function fetchData() {\n  let response = await fetch(url);\n}</pre>
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> Sending a text message and waiting for a reply before typing your next thought, rather than leaving a long list of trailing voice messages.</div>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="qa-item">
+                <div class="qa-question">9. What is Event Delegation?</div>
+                <div class="qa-answer">
+                    Instead of attaching individual event listeners to dozens of specific child nodes, you attach a single listener to a shared parent element and use event bubbling to catch actions.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> Instead of hiring 10 security guards to watch 10 separate office doors individually, you station one single guard at the main building exit gate to check everyone passing through.</div>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="qa-item">
+                <div class="qa-question">10. What is the difference between Debouncing and Throttling?</div>
+                <div class="qa-answer">
+                    - **Debouncing**: Delays execution until a specific amount of time has passed since the last event trigger.<br>
+                    - **Throttling**: Enforces a maximum rate limit, ensuring a function runs at most once every set time interval.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> **Debouncing** is an elevator door waiting for people to stop walking in before closing. **Throttling** is a traffic light letting a batch of cars through exactly once every two minutes.</div>
+                </div>
+            </div>
+
+            <!-- Q11 -->
+            <div class="qa-item">
+                <div class="qa-question">11. What is the meaning of the `this` keyword?</div>
+                <div class="qa-answer">
+                    `this` refers to the object currently executing the function code block. Its value is determined entirely by *how* a function is called at runtime, not where it was written.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> The word "me". If John says "Look at me", it refers to John. If Sarah says "Look at me", it refers to Sarah. It shifts based on who is speaking.</div>
+                </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="qa-item">
+                <div class="qa-question">12. What are Arrow Functions and how do they handle `this`?</div>
+                <div class="qa-answer">
+                    Arrow functions provide a shorter syntax and do not create their own `this` context. Instead, they inherit `this` lexically from their surrounding outer scope.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> A drone camera tracking a tour group. It doesn't have an independent viewpoint of its own; it simply follows the direction and perspective of the group leader it belongs to.</div>
+                </div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="qa-item">
+                <div class="qa-question">13. What is the difference between `call`, `apply`, and `bind`?</div>
+                <div class="qa-answer">
+                    - `call`: Invokes a function immediately, passing arguments one by one.<br>
+                    - `apply`: Invokes a function immediately, passing arguments as a single array container.<br>
+                    - `bind`: Returns a brand new function copy with its `this` context locked in, ready to be executed later.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> Borrowing a car. `call` is driving it immediately using your own key accessories. `apply` is driving it with a packed suitcase of gear. `bind` is duplicating a permanent copy of the key so you can drive it next weekend.</div>
+                </div>
+            </div>
+
+            <!-- Q14 -->
+            <div class="qa-item">
+                <div class="qa-question">14. Explain Currying in JavaScript.</div>
+                <div class="qa-answer">
+                    A functional programming technique that transforms a function taking multiple arguments into a sequence of nested functions, each taking a single argument.
+                    <pre class="code-block">const multiply = a => b => a * b;</pre>
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> An automated juice machine. First you lock in the fruit type (Apple), then it returns a new process waiting for you to select the size (Large) before dispensing.</div>
+                </div>
+            </div>
+
+            <!-- Q15 -->
+            <div class="qa-item">
+                <div class="qa-question">15. What is the Temporal Dead Zone (TDZ)?</div>
+                <div class="qa-answer">
+                    The period from the start of a block scope until a `let` or `const` variable is officially declared. Accessing the variable during this time throws a ReferenceError.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> Waiting for a reserved table to be cleaned at a restaurant. The table physically exists, but you aren't allowed to touch it or sit down until the host officially invites you over.</div>
+                </div>
+            </div>
+
+            <!-- Q16 -->
+            <div class="qa-item">
+                <div class="qa-question">16. What is the difference between `null` and `undefined`?</div>
+                <div class="qa-answer">
+                    - `undefined`: A variable has been declared but has not been assigned a value yet.<br>
+                    - `null`: An intentional assignment representing the complete absence of any object value.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> `undefined` is an empty unlabelled cardboard box waiting for contents. `null` is an empty box explicitly gift-wrapped and labeled "Nothing Inside".</div>
+                </div>
+            </div>
+
+            <!-- Q17 -->
+            <div class="qa-item">
+                <div class="qa-question">17. What are Higher-Order Functions?</div>
+                <div class="qa-answer">
+                    Functions that accept other functions as arguments, or return a function as their result (e.g., `map`, `filter`, `reduce`).
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> A factory manager. They don't do the physical labor themselves; instead, they hire specialized workers (callback functions) and distribute tasks down the line.</div>
+                </div>
+            </div>
+
+            <!-- Q18 -->
+            <div class="qa-item">
+                <div class="qa-question">18. What is IIFE (Immediately Invoked Function Expression)?</div>
+                <div class="qa-answer">
+                    A JavaScript function that runs automatically the moment it is defined, preventing internal variables from bleeding into the global scope.
+                    <pre class="code-block">(function() {\n  // Isolated code\n})();</pre>
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> A self-destructing message envelope. You tear it open, read the information once, and it immediately burns away without leaving a trace on your desk.</div>
+                </div>
+            </div>
+
+            <!-- Q19 -->
+            <div class="qa-item">
+                <div class="qa-question">19. Explain Rest and Spread operators.</div>
+                <div class="qa-answer">
+                    They use the same syntax (`...`) but serve opposite purposes:<br>
+                    - **Rest**: Gathers multiple individual elements and condenses them into a single array.<br>
+                    - **Spread**: Unpacks elements from an array or object into individual items.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> **Rest** is packing loose items lying around your room into a single travel bag. **Spread** is emptying that bag out onto a counter to display everything at once.</div>
+                </div>
+            </div>
+
+            <!-- Q20 -->
+            <div class="qa-item">
+                <div class="qa-question">20. What is NaN and how do you check for it safely?</div>
+                <div class="qa-answer">
+                    `NaN` stands for "Not-a-Number", resulting from invalid mathematical operations. You should check for it using `Number.isNaN()` because `NaN === NaN` surprisingly evaluates to false.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> Trying to multiply a shoe size by a word like "apple". The operation fails, leaving you with an invalid calculation error.</div>
+                </div>
+            </div>
+
+            <!-- Q21 -->
+            <div class="qa-item">
+                <div class="qa-question">21. What is strict mode (`"use strict"`)?</div>
+                <div class="qa-answer">
+                    A configuration flag that opts the entire script into a strict parsing mode, turning silent errors into explicit exceptions and throwing errors on bad practices.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> Working with a strict safety inspector watching over your shoulder. They won't let you leave loose tools lying around or skip steps without stopping the line immediately.</div>
+                </div>
+            </div>
+
+            <!-- Q22 -->
+            <div class="qa-item">
+                <div class="qa-question">22. Explain the concept of Destructuring.</div>
+                <div class="qa-answer">
+                    An efficient expression that lets you unpack values from arrays or properties from objects directly into distinct, clean variables.
+                    <pre class="code-block">const { name, age } = user;</pre>
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> Reaching into a toolbox and grabbing just a hammer and a screwdriver directly, instead of rummaging through the entire box step-by-step.</div>
+                </div>
+            </div>
+
+            <!-- Q23 -->
+            <div class="qa-item">
+                <div class="qa-question">23. What is the difference between deep and shallow object cloning in JavaScript?</div>
+                <div class="qa-answer">
+                    A shallow clone copies top-level properties but shares references to nested objects. A deep clone creates an entirely separate copy of everything recursively.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> Photocopying a registration form. A shallow copy copies the sheet but both sheets still point to the same physical locker key. A deep copy clones the key itself so you get a separate locker.</div>
+                </div>
+            </div>
+
+            <!-- Q24 -->
+            <div class="qa-item">
+                <div class="qa-question">24. What are Generator Functions?</div>
+                <div class="qa-answer">
+                    Functions that can pause their execution and resume later using the `yield` keyword, returning an iterator object.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> Reading a book with a bookmark. You stop reading at chapter 3, close the book, and resume reading from that exact sentence when you return tomorrow.</div>
+                </div>
+            </div>
+
+            <!-- Q25 -->
+            <div class="qa-item">
+                <div class="qa-question">25. Explain the distinction between Map and a plain Object.</div>
+                <div class="qa-answer">
+                    A **Map** can use any data type (including functions or objects) as a key, tracks its size automatically, and maintains insertion order. A plain **Object** converts keys into strings or symbols and lacks built-in optimization for large data sets.
+                    <div class="example-box"><strong>✨ Real-World Example:</strong> An object is like a simple coat rack where tags must be basic text hooks. A Map is an advanced automated valet garage system that can look up reservations using a digital token or physical card.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.qa-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                const answer = parent.querySelector('.qa-answer');
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

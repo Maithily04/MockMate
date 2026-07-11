@@ -1,0 +1,127 @@
+[
+{
+"question1": "What is CSS?",
+"answer": "CSS (Cascading Style Sheets) is used to style and format HTML elements.",
+"example": "h1 { color: blue; }"
+},
+{
+"question2": "What are the three types of CSS?",
+"answer": "Inline CSS, Internal CSS, and External CSS.",
+"example": "<h1 style='color:red;'>Hello</h1>"
+},
+{
+"question3": "What is the difference between ID and Class?",
+"answer": "ID is unique for one element, while Class can be used for multiple elements.",
+"example": "#header { color:red; }\n.content { color:blue; }"
+},
+{
+"question4": "What is the CSS Box Model?",
+"answer": "The Box Model consists of Content, Padding, Border, and Margin.",
+"example": "div { padding:10px; margin:20px; }"
+},
+{
+"question5": "What is the difference between Margin and Padding?",
+"answer": "Margin creates space outside the border. Padding creates space inside the border.",
+"example": "padding:20px; margin:20px;"
+},
+{
+"question6": "What is Flexbox?",
+"answer": "Flexbox is a one-dimensional layout system used for alignment and spacing.",
+"example": "display:flex;"
+},
+{
+"question7": "What is CSS Grid?",
+"answer": "CSS Grid is a two-dimensional layout system using rows and columns.",
+"example": "display:grid;"
+},
+{
+"question8": "What is the difference between Flexbox and Grid?",
+"answer": "Flexbox handles one dimension, while Grid handles two dimensions.",
+"example": "Flexbox → Row\nGrid → Row + Column"
+},
+{
+"question9": "What are CSS Selectors?",
+"answer": "Selectors target HTML elements for styling.",
+"example": "p { color:green; }"
+},
+{
+"question10": "What is CSS Specificity?",
+"answer": "Specificity determines which CSS rule is applied when multiple rules target the same element.",
+"example": "#id > .class > tag"
+},
+{
+"question11": "What is z-index?",
+"answer": "z-index controls the stacking order of overlapping elements.",
+"example": "z-index: 10;"
+},
+{
+"question12": "What is the difference between px, em, rem and %?",
+"answer": "px is fixed, em depends on parent, rem depends on root element, and % depends on parent size.",
+"example": "font-size:2rem;"
+},
+{
+"question13": "What are Pseudo Classes?",
+"answer": "Pseudo classes define special states of elements.",
+"example": "button:hover { color:red; }"
+},
+{
+"question14": "What are Pseudo Elements?",
+"answer": "Pseudo elements style specific parts of elements.",
+"example": "p::first-letter { font-size:2rem; }"
+},
+{
+"question15": "What is the difference between inline, block and inline-block?",
+"answer": "Inline takes required width, block takes full width, and inline-block combines both behaviors.",
+"example": "display:inline-block;"
+},
+{
+"question16": "What is Responsive Web Design?",
+"answer": "Responsive design ensures websites work properly on all screen sizes.",
+"example": "@media(max-width:768px){}"
+},
+{
+"question17": "What are Media Queries?",
+"answer": "Media queries apply styles based on screen size or device characteristics.",
+"example": "@media(max-width:600px){ body{font-size:14px;} }"
+},
+{
+"question18": "What is the difference between absolute and relative units?",
+"answer": "px is absolute. %, em, rem, vw and vh are relative units.",
+"example": "width:50%;"
+},
+{
+"question19": "What is Overflow in CSS?",
+"answer": "Overflow controls how content behaves when it exceeds an element's dimensions.",
+"example": "overflow:auto;"
+},
+{
+"question20": "What is the Transform Property?",
+"answer": "Transform modifies an element's position, size, or rotation.",
+"example": "transform: rotate(45deg);"
+},
+{
+"question21": "What is CSS Transition?",
+"answer": "Transition creates smooth changes between property values.",
+"example": "transition: all 0.3s ease;"
+},
+{
+"question22": "What is CSS Animation?",
+"answer": "Animations create movement and visual effects without JavaScript.",
+"example": "@keyframes move { from{left:0;} to{left:100px;} }"
+},
+{
+"question23": "What is the difference between display:none and visibility:hidden?",
+"answer": "display:none removes the element completely. visibility:hidden hides it but keeps its space.",
+"example": "display:none;"
+},
+{
+"question24": "What is the difference between visibility:hidden and opacity:0?",
+"answer": "visibility:hidden prevents interaction. opacity:0 makes the element invisible but it still exists.",
+"example": "opacity:0;"
+},
+{
+"question25": "What is Position Sticky?",
+"answer": "Sticky positioning behaves like relative until a scroll threshold is reached, then behaves like fixed.",
+"example": "position:sticky; top:0;"
+}
+]

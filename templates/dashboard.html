@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MockMate Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+    <style>
+        .dashboard-container { width: 90%; margin: auto; min-height: 100vh; padding: 40px 0; }
+        .dashboard-title { text-align: center; font-family: 'Caveat', cursive; font-size: 4.5rem; color: #6c5ce7; margin-bottom: 10px; }
+        .dashboard-subtitle { text-align: center; font-family: 'Patrick Hand', cursive; font-size: 1.4rem; color: #666; margin-bottom: 50px; }
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .dashboard-card { background: rgba(255, 255, 255, 0.94); border-radius: 25px; padding: 40px; text-decoration: none; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.10); transition: 0.3s ease; display: block; }
+        .dashboard-card:hover { transform: translateY(-10px) scale(1.03); }
+        .dashboard-card h2 { font-family: 'Caveat', cursive; font-size: 2.5rem; color: #6c5ce7; }
+        .dashboard-card p { font-family: 'Patrick Hand', cursive; font-size: 1.2rem; color: #555; line-height: 1.8; }
+
+        .progress-section { background: rgba(255, 255, 255, 0.90); border-radius: 25px; padding: 40px; margin-top: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border: 2px dashed #b2bec3; }
+        .progress-section-title { text-align: center; font-family: 'Caveat', cursive; font-size: 3rem; color: #6c5ce7; margin-top: 0; margin-bottom: 30px; }
+        .progress-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+        @media (max-width: 768px) { .progress-layout { grid-template-columns: 1fr; } }
+
+        .kpi-card { background: #fff; border-radius: 20px; padding: 25px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: center; align-items: center; border-left: 6px solid #6c5ce7; }
+        .kpi-card h3 { font-family: 'Patrick Hand', cursive; font-size: 1.6rem; color: #555; margin: 0; }
+        .kpi-card h1 { font-family: 'Caveat', cursive; font-size: 4rem; color: #6c5ce7; margin: 10px 0 5px 0; }
+        .kpi-card p { font-family: 'Patrick Hand', cursive; font-size: 1.1rem; color: #777; margin: 0; }
+
+        .subject-container { background: #fff; border-radius: 20px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .progress-row { margin-bottom: 20px; }
+        .progress-info { display: flex; justify-content: space-between; font-family: 'Patrick Hand', cursive; font-size: 1.3rem; color: #333; margin-bottom: 5px; }
+        
+        /* Fixed CSS Selector */
+        .progress-info .span-pct { color: #6c5ce7; font-weight: bold; }
+        
+        .progress-bar-bg { background: #dfe6e9; border-radius: 15px; height: 14px; overflow: hidden; width: 100%; }
+        .progress-bar-fill { background: linear-gradient(90deg, #a29bfe, #6c5ce7); height: 100%; border-radius: 15px; transition: width 0.6s ease; }
+
+        .quote-section { margin-top: 60px; text-align: center; font-family: 'Caveat', cursive; font-size: 2rem; color: #8e7dff; }
+        .footer-note { margin-top: 30px; text-align: center; font-family: 'Patrick Hand', cursive; font-size: 1.1rem; color: #666; }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <h1 class="dashboard-title">MockMate AI</h1>
+    <p class="dashboard-subtitle">Your Personal Placement Preparation Notebook</p>
+
+    <!-- Navigation Cards -->
+    <div class="dashboard-grid">
+        <a href="/mock_interview" class="dashboard-card">
+            <h2>Start Mock Interview</h2>
+            <p>Practice AI-powered interviews and improve your confidence.</p>
+        </a>
+        <a href="/python_hub" class="dashboard-card">
+            <h2>Python Practice</h2>
+            <p>Flashcards, cheatsheets, and placement questions.</p>
+        </a>
+        <a href="/html_hub" class="dashboard-card">
+            <h2>HTML Practice</h2>
+            <p>Master tags, forms, and semantic elements.</p>
+        </a>
+        <a href="/css_hub" class="dashboard-card">
+            <h2>CSS Practice</h2>
+            <p>Flexbox, Grid, Box Model, and Responsive Design.</p>
+        </a>
+        <a href="/javascript_hub" class="dashboard-card">
+            <h2>JavaScript Practice</h2>
+            <p>Concepts, DOM, Events, and Promises.</p>
+        </a>
+        <a href="/dsa_hub" class="dashboard-card">
+            <h2>DSA Practice</h2>
+            <p>Arrays, Trees, Graphs, Sorting, and Searching.</p>
+        </a>
+    </div>
+
+    <!-- Progress Report -->
+    <div class="progress-section">
+        <h2 class="progress-section-title">MockMate Preparation Report</h2>
+        <div class="progress-layout">
+            <div class="kpi-card">
+                <h3>Interview Accuracy</h3>
+                <h1>{{ average_score|default(0) }}%</h1>
+                <p>Across {{ total_attempted|default(0) }} questions analyzed</p>
+            </div>
+
+            <div class="subject-container">
+                {% set p = progress|default({}) %}
+                
+                <div class="progress-row">
+                    <div class="progress-info">
+                        <span>Python Modules</span>
+                        <span class="span-pct">{{ p.python|default(0) }}%</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: {{ p.python|default(0) }}%;"></div></div>
+                </div>
+
+                <div class="progress-row">
+                    <div class="progress-info">
+                        <span>HTML Structure</span>
+                        <span class="span-pct">{{ p.html|default(0) }}%</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: {{ p.html|default(0) }}%;"></div></div>
+                </div>
+
+                <div class="progress-row">
+                    <div class="progress-info">
+                        <span>CSS Styling</span>
+                        <span class="span-pct">{{ p.css|default(0) }}%</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: {{ p.css|default(0) }}%;"></div></div>
+                </div>
+
+                <div class="progress-row">
+                    <div class="progress-info">
+                        <span>JavaScript Engine</span>
+                        <span class="span-pct">{{ p.javascript|default(0) }}%</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: {{ p.javascript|default(0) }}%;"></div></div>
+                </div>
+
+                <div class="progress-row">
+                    <div class="progress-info">
+                        <span>Data Structures & Algorithms</span>
+                        <span class="span-pct">{{ p.dsa|default(0) }}%</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: {{ p.dsa|default(0) }}%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quote-section">"Success is where preparation and opportunity meet."</div>
+    <div class="footer-note">MockMate AI • Placement Preparation Dashboard</div>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

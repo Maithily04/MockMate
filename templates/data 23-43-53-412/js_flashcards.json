@@ -1,0 +1,122 @@
+[
+{
+"question": "What is JavaScript?",
+"answer": "JavaScript is a high-level programming language used to create interactive and dynamic web pages."
+},
+{
+"question": "What are JavaScript Data Types?",
+"answer": "String, Number, Boolean, Undefined, Null, Object, Symbol, and BigInt."
+},
+{
+"question": "Difference between var, let and const?",
+"answer": "var is function scoped, let is block scoped, and const cannot be reassigned."
+},
+{
+"question": "Difference between == and === ?",
+"answer": "== compares values after type conversion, while === compares both value and type."
+},
+{
+"question": "What is Hoisting?",
+"answer": "Hoisting moves variable and function declarations to the top of their scope before execution."
+},
+{
+"question": "What is a Closure?",
+"answer": "A Closure is a function that remembers variables from its outer scope even after the outer function has finished executing."
+},
+{
+"question": "Difference between null and undefined?",
+"answer": "undefined means a variable has not been assigned a value. null represents an intentional absence of value."
+},
+{
+"question": "What is an Arrow Function?",
+"answer": "Arrow Functions provide a shorter syntax for writing functions and do not have their own this keyword."
+},
+{
+"question": "Function Declaration vs Function Expression?",
+"answer": "Function declarations are hoisted, while function expressions are not fully hoisted."
+},
+{
+"question": "What is DOM?",
+"answer": "DOM (Document Object Model) represents an HTML document as a tree structure that JavaScript can manipulate."
+},
+{
+"question": "What are Events in JavaScript?",
+"answer": "Events are actions performed by users or browsers such as clicks, typing, and page loads."
+},
+{
+"question": "What is Event Bubbling?",
+"answer": "Event Bubbling occurs when an event propagates from the target element to its parent elements."
+},
+{
+"question": "What is Event Delegation?",
+"answer": "Event Delegation uses a parent element to handle events for multiple child elements."
+},
+{
+"question": "Difference between let and const?",
+"answer": "let variables can be reassigned, while const variables cannot be reassigned after initialization."
+},
+{
+"question": "What is a Callback Function?",
+"answer": "A Callback Function is passed as an argument to another function and executed later."
+},
+{
+"question": "What is a Promise?",
+"answer": "A Promise represents the eventual completion or failure of an asynchronous operation."
+},
+{
+"question": "Promise States?",
+"answer": "Pending, Fulfilled, and Rejected."
+},
+{
+"question": "What is Async/Await?",
+"answer": "Async/Await simplifies asynchronous programming and makes code easier to read."
+},
+{
+"question": "Difference between Synchronous and Asynchronous Programming?",
+"answer": "Synchronous code runs line by line, while asynchronous code allows tasks to run without blocking execution."
+},
+{
+"question": "What is the this Keyword?",
+"answer": "The this keyword refers to the object currently executing the function."
+},
+{
+"question": "Difference between map() and forEach()?",
+"answer": "map() returns a new array, while forEach() performs operations without returning a new array."
+},
+{
+"question": "What is Destructuring?",
+"answer": "Destructuring extracts values from arrays or objects into variables."
+},
+{
+"question": "What is the Spread Operator (...) ?",
+"answer": "The Spread Operator expands arrays or objects into individual elements."
+},
+{
+"question": "What is Local Storage?",
+"answer": "Local Storage stores data in the browser permanently until manually removed."
+},
+{
+"question": "Difference between Local Storage and Session Storage?",
+"answer": "Local Storage persists after closing the browser, while Session Storage is cleared when the tab is closed."
+},
+{
+"question": "Difference between call(), apply(), and bind()?",
+"answer": "call() and apply() invoke functions immediately, while bind() returns a new function."
+},
+{
+"question": "What is Event Listener?",
+"answer": "An Event Listener waits for a specific event and executes code when the event occurs."
+},
+{
+"question": "What is JSON?",
+"answer": "JSON (JavaScript Object Notation) is a lightweight format for storing and exchanging data."
+},
+{
+"question": "What is the Difference between JSON.parse() and JSON.stringify()?",
+"answer": "JSON.parse() converts JSON to an object, while JSON.stringify() converts an object to JSON."
+},
+{
+"question": "What is ES6?",
+"answer": "ES6 is a major JavaScript update that introduced features like let, const, arrow functions, classes, promises, and destructuring."
+}
+]

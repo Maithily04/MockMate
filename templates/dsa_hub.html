@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>DSA Study Hub | MockMate</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Patrick+Hand&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        .hub-container{
+
+            width:90%;
+
+            margin:auto;
+
+            min-height:100vh;
+
+            padding:40px 0;
+        }
+
+        .hub-heading{
+
+            text-align:center;
+
+            font-family:'Caveat',cursive;
+
+            font-size:4rem;
+
+            color:#6c5ce7;
+
+            margin-bottom:15px;
+        }
+
+        .hub-subtitle{
+
+            text-align:center;
+
+            font-family:'Patrick Hand',cursive;
+
+            font-size:1.4rem;
+
+            color:#555;
+
+            margin-bottom:50px;
+        }
+
+        .card-grid{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,
+            minmax(300px,1fr));
+
+            gap:30px;
+        }
+
+        .hub-card{
+
+            background:
+            rgba(255,255,255,0.94);
+
+            border-radius:25px;
+
+            padding:35px;
+
+            text-align:center;
+
+            text-decoration:none;
+
+            box-shadow:
+            0 5px 15px
+            rgba(0,0,0,0.1);
+
+            transition:0.3s;
+        }
+
+        .hub-card:hover{
+
+            transform:
+            translateY(-10px)
+            scale(1.03);
+        }
+
+        .hub-card h2{
+
+            font-family:'Caveat',cursive;
+
+            color:#6c5ce7;
+
+            font-size:2.5rem;
+
+            margin-bottom:15px;
+        }
+
+        .hub-card p{
+
+            font-family:'Patrick Hand',cursive;
+
+            color:#555;
+
+            font-size:1.2rem;
+
+            line-height:1.8;
+        }
+
+        .roadmap-section{
+
+            margin-top:60px;
+
+            background:
+            rgba(255,255,255,0.92);
+
+            padding:30px;
+
+            border-radius:25px;
+
+            box-shadow:
+            0 5px 15px
+            rgba(0,0,0,0.08);
+        }
+
+        .roadmap-section h2{
+
+            font-family:'Caveat',cursive;
+
+            color:#6c5ce7;
+
+            font-size:3rem;
+
+            text-align:center;
+        }
+
+        .roadmap-section ul{
+
+            font-family:'Patrick Hand',cursive;
+
+            font-size:1.3rem;
+
+            line-height:2;
+        }
+
+        .quote-box{
+
+            margin-top:50px;
+
+            text-align:center;
+
+            font-family:'Caveat',cursive;
+
+            font-size:2rem;
+
+            color:#8e7dff;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="hub-container">
+
+    <h1 class="hub-heading">
+        DSA Study Hub
+    </h1>
+
+    <p class="hub-subtitle">
+        Learn • Revise • Practice • Crack Placements
+    </p>
+
+    <div class="card-grid">
+
+        <a href="/dsa_cheatsheet"
+           class="hub-card">
+
+            <h2>Cheatsheet</h2>
+
+            <p>
+                Revise Arrays, Linked Lists,
+                Stacks, Queues, Trees,
+                Graphs, Searching and
+                Sorting in one place.
+            </p>
+
+        </a>
+
+        <a href="/dsa_flashcards"
+           class="hub-card">
+
+            <h2>Flashcards</h2>
+
+            <p>
+                Quick revision cards for
+                placement preparation and
+                last-minute interview review.
+            </p>
+
+        </a>
+
+        <a href="/dsa_questions"
+           class="hub-card">
+
+            <h2>Interview Questions</h2>
+
+            <p>
+                Practice the most asked
+                DSA placement interview
+                questions with answers
+                and examples.
+            </p>
+
+        </a>
+
+    </div>
+
+    <div class="roadmap-section">
+
+<script src="{{ url_for('static',
+filename='js/script.js') }}">
+</script>
+
+</body>
+
+</html>
