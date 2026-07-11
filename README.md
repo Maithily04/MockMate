@@ -6,6 +6,33 @@ Your Personal Placement Preparation Notebook.
 
 MockMate AI is a comprehensive web-based platform designed to help students and job seekers streamline their placement preparation. It combines interactive learning, AI-powered mock interviews, and performance tracking into one unified, notebook-style interface.
 
+## Project Structure (Directory Showcase)
+Understanding how the application is organized:
+
+MockMate/
+├── app.py                # The brain of the project; manages routes & server logic
+├── requirements.txt      # List of all Python dependencies
+├── README.md             # Project documentation
+│
+├── templates/            # Frontend: Contains all your HTML files
+│   ├── dashboard.html    # Main dashboard view
+│   ├── login.html        # Authentication page
+│   ├── interview.html    # Mock interview interface
+│   ├── *_hub.html        # Subject-specific hubs (Python, HTML, CSS, etc.)
+│   └── *_flashcards.html # Interactive learning tools
+│
+├── static/               # Assets
+│   ├── css/              # Styling (Notebook aesthetic/Responsive design)
+│   ├── js/               # Frontend logic (Flashcard flips, etc.)
+│   └── images/           # Notebook background and icons
+│
+├── utils/                # Backend logic
+│   ├── feedback.py       # AI feedback generation
+│   ├── question_generator.py # Mock interview question logic
+│   └── resume_parser.py  # PDF resume analysis
+│
+└── uploads/              # Storage for user resume PDFs
+
 ## Key Features
 
 *   **AI Mock Interviews**: Practice your interview skills with real-time analysis and feedback.
